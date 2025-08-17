@@ -27,7 +27,7 @@ export default {
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -35,5 +35,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

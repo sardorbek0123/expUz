@@ -85,7 +85,7 @@ export function TourPackages() {
   };
 
   return (
-    <section id="packages" className="py-24 bg-gradient-to-b from-secondary/30 to-background">
+    <section id="packages" className="py-12 sm:py-24 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div 
@@ -256,7 +256,7 @@ export function TourPackages() {
 
         {/* Additional Info */}
         <div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
+          className="grid grid-cols-3 gap-4 md:gap-6 text-center overflow-x-auto"
           data-aos="fade-up"
           data-aos-delay="400"
         >

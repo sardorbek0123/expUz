@@ -22,14 +22,25 @@ export function CustomSwiper({
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const swiperRef = useRef<HTMLDivElement>(null);
   const autoplayRef = useRef<NodeJS.Timeout>();
 
   const totalSlides = children.length;
   const maxSlide = Math.max(0, totalSlides - Math.floor(slidesToShow));
 
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const startAutoplay = () => {
-    if (autoplay && totalSlides > 1) {
+    if (autoplay && totalSlides > 1 && !isMobile) {
       autoplayRef.current = setInterval(() => {
         setCurrentSlide(prev => (prev >= maxSlide ? 0 : prev + 1));
       }, autoplaySpeed);
@@ -45,7 +56,7 @@ export function CustomSwiper({
   useEffect(() => {
     startAutoplay();
     return () => stopAutoplay();
-  }, [maxSlide, autoplay, autoplaySpeed]);
+  }, [maxSlide, autoplay, autoplaySpeed, isMobile]);
 
   const goToSlide = (slideIndex: number) => {
     const clampedIndex = Math.max(0, Math.min(slideIndex, maxSlide));
@@ -68,6 +79,7 @@ export function CustomSwiper({
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
+    e.preventDefault();
     const currentX = e.touches[0].clientX;
     const diffX = startX - currentX;
     setTranslateX(-diffX);
@@ -77,7 +89,7 @@ export function CustomSwiper({
     if (!isDragging) return;
     setIsDragging(false);
     
-    const threshold = 50;
+    const threshold = 30; // Lower threshold for mobile
     if (Math.abs(translateX) > threshold) {
       if (translateX > 0) {
         nextSlide();
@@ -90,20 +102,21 @@ export function CustomSwiper({
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
+    if (isMobile) return; // Disable mouse drag on mobile
     setIsDragging(true);
     setStartX(e.clientX);
     stopAutoplay();
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
+    if (!isDragging || isMobile) return;
     const currentX = e.clientX;
     const diffX = startX - currentX;
     setTranslateX(-diffX);
   };
 
   const handleMouseUp = () => {
-    if (!isDragging) return;
+    if (!isDragging || isMobile) return;
     setIsDragging(false);
     
     const threshold = 50;
@@ -144,7 +157,7 @@ export function CustomSwiper({
           {children.map((child, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-2"
+              className="flex-shrink-0 px-1 sm:px-2"
               style={{ width: `${slideWidth}%` }}
             >
               {child}
@@ -153,8 +166,8 @@ export function CustomSwiper({
         </div>
       </div>
 
-      {/* Navigation Arrows */}
-      {totalSlides > 1 && (
+      {/* Navigation Arrows - Hidden on mobile for better UX */}
+      {totalSlides > 1 && !isMobile && (
         <>
           <button
             onClick={prevSlide}
@@ -173,14 +186,14 @@ export function CustomSwiper({
         </>
       )}
 
-      {/* Dots Indicator */}
+      {/* Dots Indicator - Enhanced for mobile */}
       {dots && totalSlides > 1 && (
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-2 mt-4 sm:mt-6">
           {Array.from({ length: maxSlide + 1 }).map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
                 index === currentSlide 
                   ? 'bg-primary' 
                   : 'bg-primary/30 hover:bg-primary/50'

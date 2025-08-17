@@ -37,7 +37,7 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-24 bg-gradient-to-b from-secondary/30 to-background">
+      <section id="contact" className="py-12 sm:py-24 bg-gradient-to-b from-secondary/30 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             className="max-w-2xl mx-auto text-center"
@@ -63,7 +63,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-secondary/30 to-background">
+    <section id="contact" className="py-12 sm:py-24 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div 
@@ -82,7 +82,7 @@ export function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div 
-            className="space-y-6"
+            className="grid grid-cols-2 gap-4 md:space-y-6"
             data-aos="fade-right"
             data-aos-delay="200"
           >
