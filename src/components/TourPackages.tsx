@@ -10,7 +10,7 @@ const packages = [
     name: "Standard Package",
     price: "$1,399",
     duration: "7 Days",
-    icon: <Zap className="h-6 w-6" />,
+    icon: <Zap className="h-3 sm:h-4 w-3 sm:w-4" />,
     badge: "Most Popular",
     badgeColor: "bg-blue-500",
     description: "Perfect introduction to Uzbekistan's highlights with comfortable accommodations and guided group tours.",
@@ -31,7 +31,7 @@ const packages = [
     name: "Premium Package",
     price: "$1,899",
     duration: "10 Days",
-    icon: <Star className="h-6 w-6" />,
+    icon: <Star className="h-3 sm:h-4 w-3 sm:w-4" />,
     badge: "Best Value",
     badgeColor: "bg-primary",
     description: "Enhanced experience with quality hotels, private transport, and authentic local experiences.",
@@ -54,7 +54,7 @@ const packages = [
     name: "VIP Package",
     price: "$2,299",
     duration: "14 Days",
-    icon: <Crown className="h-6 w-6" />,
+    icon: <Crown className="h-3 sm:h-4 w-3 sm:w-4" />,
     badge: "Ultimate Luxury",
     badgeColor: "bg-gradient-to-r from-yellow-400 to-orange-500",
     description: "Ultimate luxury experience with boutique hotels, VIP services, and exclusive access throughout.",
@@ -101,69 +101,61 @@ export function TourPackages() {
           </p>
         </div>
 
-        {/* Mobile Swiper */}
+        {/* Mobile Cards */}
         <div className="block lg:hidden mb-16">
-          <CustomSwiper slidesToShow={1.1} autoplay={false} autoplaySpeed={5000}>
+          <div className="grid grid-cols-3 gap-3">
             {packages.map((pkg, index) => (
               <Card 
                 key={pkg.name}
-                className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br ${pkg.gradient} border-2 ${pkg.borderColor} min-h-[600px] flex flex-col`}
+                className={`relative overflow-hidden hover:shadow-lg transition-all duration-300 bg-gradient-to-br ${pkg.gradient} border ${pkg.borderColor} min-h-[250px] flex flex-col`}
                 data-aos="fade-up"
                 data-aos-delay={index * 200}
               >
                 {/* Badge */}
-                <div className="absolute top-4 right-4">
-                  <Badge className={`${pkg.badgeColor} text-white border-0`}>
+                <div className="absolute top-2 right-2 hidden sm:block">
+                  <Badge className={`${pkg.badgeColor} text-white border-0 text-[9px] sm:text-xs px-1 sm:px-2 py-0.5 sm:py-1`}>
                     {pkg.badge}
                   </Badge>
                 </div>
 
-                <CardHeader className="text-center pb-4">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-primary/10 rounded-full">
-                      {pkg.icon}
+                <CardHeader className="text-center pb-1 sm:pb-2 px-1 sm:px-3 pt-1 sm:pt-4">
+                  <div className="flex justify-center mb-1 sm:mb-2">
+                    <div className="p-1 sm:p-2 bg-primary/10 rounded-full">
+                      <div className="w-3 h-3 sm:w-4 sm:h-4">
+                        {pkg.icon}
+                      </div>
                     </div>
                   </div>
-                  <CardTitle className="text-2xl mb-2">{pkg.name}</CardTitle>
-                  <div className="text-3xl font-bold text-primary mb-2">{pkg.price}</div>
-                  <div className="text-muted-foreground">{pkg.duration}</div>
-                  <p className="text-sm text-muted-foreground mt-3">
-                    {pkg.description}
-                  </p>
+                  <CardTitle className="text-sm mb-0 sm:mb-1">{pkg.name}</CardTitle>
+                  <div className="text-lg font-bold text-primary mb-0 sm:mb-1">{pkg.price}</div>
+                  <div className="text-xs text-muted-foreground mb-0 sm:mb-1">{pkg.duration}</div>
                 </CardHeader>
 
-                <CardContent className="pt-0 flex-1 flex flex-col">
-                  {/* Features List */}
-                  <div className="space-y-3 mb-6">
-                    {pkg.features.slice(0, 5).map((feature, featureIndex) => (
+                <CardContent className="pt-0 flex-1 flex flex-col px-1 sm:px-3 pb-1 sm:pb-3">
+                  {/* Features List - limited to 3 */}
+                  <div className="space-y-0.5 sm:space-y-1 mb-1 sm:mb-3">
+                    {pkg.features.slice(0, 3).map((feature, featureIndex) => (
                       <div 
                         key={feature} 
                         className="flex items-start"
                         data-aos="fade-right"
                         data-aos-delay={index * 200 + featureIndex * 50}
                       >
-                        <Check className="h-4 w-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
+                        <Check className="h-2 sm:h-3 w-2 sm:w-3 text-green-500 mt-0.5 mr-1 sm:mr-2 flex-shrink-0" />
+                        <span className="text-[9px] sm:text-xs">{feature}</span>
                       </div>
                     ))}
-                    {pkg.features.length > 5 && (
-                      <div className="text-xs text-muted-foreground">
-                        +{pkg.features.length - 5} more features...
-                      </div>
-                    )}
                   </div>
 
-                  {/* Includes */}
-                  <div className="bg-muted/50 rounded-lg p-4 mb-6">
-                    <h4 className="font-semibold text-sm mb-2">Package Includes:</h4>
-                    <p className="text-xs text-muted-foreground">{pkg.includes}</p>
-                  </div>
+                  {/* Spacer to push button to bottom */}
+                  <div className="flex-1"></div>
 
-                  {/* CTA Button - pushed to bottom with mt-auto */}
+                  {/* CTA Button - positioned at bottom */}
                   <div className="mt-auto">
                     <Button 
                       onClick={scrollToContact}
-                      className={`w-full ${
+                      size="sm"
+                      className={`w-full text-[9px] sm:text-xs ${
                         index === 1 
                           ? 'bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white' 
                           : index === 2
@@ -171,13 +163,13 @@ export function TourPackages() {
                           : 'bg-primary hover:bg-primary/90'
                       }`}
                     >
-                      Book {pkg.name}
+                      Book Now
                     </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </CustomSwiper>
+          </div>
         </div>
 
         {/* Desktop Grid */}
