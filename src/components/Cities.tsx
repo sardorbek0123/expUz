@@ -1,0 +1,225 @@
+import { Card, CardContent } from "./ui/card";
+import { Badge } from "./ui/badge";
+import { MapPin, Clock, Camera } from "lucide-react";
+import { ImageWithFallback } from './figma/ImageWithFallback';
+import { CustomSwiper } from './CustomSwiper';
+
+const cities = [
+  {
+    name: "Tashkent",
+    description: "Modern capital blending Soviet architecture with Islamic heritage",
+    image: "https://images.unsplash.com/photo-1681195579718-e738abcaa178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUYXNoa2VudCUyMFV6YmVraXN0YW4lMjBtb2Rlcm4lMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzU0OTk2MzM3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    highlights: ["Independence Square", "Chorsu Bazaar", "Modern Metro"],
+    duration: "2 days",
+    badge: "Capital"
+  },
+  {
+    name: "Samarkand",
+    description: "Legendary Silk Road city with stunning Islamic architecture",
+    image: "https://images.unsplash.com/photo-1728565721798-cf65c7bf1efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTYW1hcmthbmQlMjBSZWdpc3RhbiUyMFNxdWFyZSUyMFV6YmVraXN0YW58ZW58MXx8fHwxNzU0OTk2MzQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    highlights: ["Registan Square", "Shah-i-Zinda", "Bibi Khanum Mosque"],
+    duration: "3 days",
+    badge: "UNESCO"
+  },
+  {
+    name: "Bukhara",
+    description: "Living museum of Central Asian Islamic civilization",
+    image: "https://images.unsplash.com/photo-1719995153986-63e529a32585?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxCdWtoYXJhJTIwaGlzdG9yaWMlMjBhcmNoaXRlY3R1cmUlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    highlights: ["Poi Kalyan Complex", "Ark Fortress", "Lyab-i-Hauz"],
+    duration: "2 days",
+    badge: "UNESCO"
+  },
+  {
+    name: "Khiva",
+    description: "Perfectly preserved medieval city within ancient walls",
+    image: "https://images.unsplash.com/photo-1426329559439-876ed4b77295?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxLaGl2YSUyMGFuY2llbnQlMjBjaXR5JTIwd2FsbHMlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    highlights: ["Itchan Kala", "Kunya Ark", "Islam Khoja Minaret"],
+    duration: "2 days",
+    badge: "UNESCO"
+  },
+  {
+    name: "Termez",
+    description: "Ancient Buddhist heritage meets Islamic architecture",
+    image: "https://images.unsplash.com/photo-1569531955316-e353abac4ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUZXJtZXolMjBCdWRkaGlzdCUyMGhlcml0YWdlJTIwVXpiZWtpc3RhbnxlbnwxfHx8fDE3NTQ5OTYzNjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    highlights: ["Al-Hakim at-Termezi", "Fayaz Tepa", "Sultan Saodat"],
+    duration: "1 day",
+    badge: "Buddhist Heritage"
+  }
+];
+
+export function Cities() {
+  return (
+    <section id="cities" className="py-24 bg-gradient-to-b from-background to-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div 
+          className="text-center mb-16"
+          data-aos="fade-up"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            Discover Historic Cities
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Journey through millennia of history as you explore five magnificent cities that showcase 
+            the rich cultural heritage of the ancient Silk Road.
+          </p>
+        </div>
+
+        {/* Mobile Swiper */}
+        <div className="block md:hidden mb-8">
+          <CustomSwiper slidesToShow={1.2} autoplay={false} autoplaySpeed={4000}>
+            {cities.map((city, index) => (
+              <Card 
+                key={city.name}
+                className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-2 border-primary/10 hover:border-primary/30"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden">
+                  <ImageWithFallback
+                    src={city.image}
+                    alt={city.name}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  
+                  {/* Badge */}
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-primary/90 text-white border-0">
+                      {city.badge}
+                    </Badge>
+                  </div>
+
+                  {/* Duration */}
+                  <div className="absolute top-4 right-4 flex items-center text-white text-sm bg-black/30 rounded-full px-3 py-1">
+                    <Clock className="h-3 w-3 mr-1" />
+                    {city.duration}
+                  </div>
+
+                  {/* City Name Overlay */}
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-2xl font-bold">{city.name}</h3>
+                  </div>
+                </div>
+
+                <CardContent className="p-6">
+                  {/* Description */}
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {city.description}
+                  </p>
+
+                  {/* Highlights */}
+                  <div className="space-y-2">
+                    <div className="flex items-center text-sm font-medium mb-2">
+                      <Camera className="h-4 w-4 mr-2 text-primary" />
+                      Key Attractions
+                    </div>
+                    {city.highlights.map((highlight) => (
+                      <div key={highlight} className="flex items-start text-sm text-muted-foreground">
+                        <MapPin className="h-3 w-3 mr-2 mt-1 text-primary flex-shrink-0" />
+                        {highlight}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div className="mt-6 pt-4 border-t border-border">
+                    <button className="text-primary hover:text-primary/80 text-sm font-medium transition-colors group-hover:underline">
+                      Explore {city.name} →
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </CustomSwiper>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cities.map((city, index) => (
+            <Card 
+              key={city.name} 
+              className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-2 border-primary/10 hover:border-primary/30"
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
+            >
+              {/* Image */}
+              <div className="relative overflow-hidden">
+                <ImageWithFallback
+                  src={city.image}
+                  alt={city.name}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                
+                {/* Badge */}
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-primary/90 text-white border-0">
+                    {city.badge}
+                  </Badge>
+                </div>
+
+                {/* Duration */}
+                <div className="absolute top-4 right-4 flex items-center text-white text-sm bg-black/30 rounded-full px-3 py-1">
+                  <Clock className="h-3 w-3 mr-1" />
+                  {city.duration}
+                </div>
+
+                {/* City Name Overlay */}
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl font-bold">{city.name}</h3>
+                </div>
+              </div>
+
+              <CardContent className="p-6">
+                {/* Description */}
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {city.description}
+                </p>
+
+                {/* Highlights */}
+                <div className="space-y-2">
+                  <div className="flex items-center text-sm font-medium mb-2">
+                    <Camera className="h-4 w-4 mr-2 text-primary" />
+                    Key Attractions
+                  </div>
+                  {city.highlights.map((highlight) => (
+                    <div key={highlight} className="flex items-start text-sm text-muted-foreground">
+                      <MapPin className="h-3 w-3 mr-2 mt-1 text-primary flex-shrink-0" />
+                      {highlight}
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div className="mt-6 pt-4 border-t border-border">
+                  <button className="text-primary hover:text-primary/80 text-sm font-medium transition-colors group-hover:underline">
+                    Explore {city.name} →
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div 
+          className="text-center mt-16"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <div className="bg-gradient-to-r from-primary/10 to-blue-600/10 rounded-2xl p-8 border border-primary/20">
+            <h3 className="text-2xl font-bold mb-4">Ready to Explore All Five Cities?</h3>
+            <p className="text-muted-foreground mb-6">
+              Join our comprehensive tour packages that cover all historic cities with expert guides and comfortable transportation.
+            </p>
+            <button className="bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg">
+              View Tour Packages
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

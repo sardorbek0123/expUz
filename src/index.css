@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --font-size: 14px;
+  --background: #fefcf8;
+  --foreground: #2c1810;
+  --card: #fff;
+  --card-foreground: #2c1810;
+  --popover: oklch(1 0 0);
+  --popover-foreground: #2c1810;
+  --primary: #d4741a;
+  --primary-foreground: #fff;
+  --secondary: #f4e5d3;
+  --secondary-foreground: #2c1810;
+  --muted: #f9f3ed;
+  --muted-foreground: #8b6f47;
+  --accent: #e8d5c4;
+  --accent-foreground: #2c1810;
+  --destructive: #d4183d;
+  --destructive-foreground: #fff;
+  --border: #d4741a33;
+  --input: transparent;
+  --input-background: #f9f3ed;
+  --switch-background: #e8d5c4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #d4741a;
+  --chart-1: #d4741a;
+  --chart-2: #2563eb;
+  --chart-3: #dc2626;
+  --chart-4: #16a34a;
+  --chart-5: #ca8a04;
+  --radius: .625rem;
+  --sidebar: #fefcf8;
+  --sidebar-foreground: #2c1810;
+  --sidebar-primary: #d4741a;
+  --sidebar-primary-foreground: #fff;
+  --sidebar-accent: #f4e5d3;
+  --sidebar-accent-foreground: #2c1810;
+  --sidebar-border: #d4741a33;
+  --sidebar-ring: #d4741a;
+  --uzbek-gold: #d4741a;
+  --uzbek-blue: #2563eb;
+  --uzbek-terracotta: #c2410c;
+  --uzbek-sand: #fef3c7;
+  --uzbek-deep-blue: #1e40af;
+  
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
