@@ -1,3 +1,4 @@
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -76,6 +77,13 @@ const packages = [
 ];
 
 export function TourPackages() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="packages" className="py-24 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,7 +107,7 @@ export function TourPackages() {
             {packages.map((pkg, index) => (
               <Card 
                 key={pkg.name}
-                className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br ${pkg.gradient} border-2 ${pkg.borderColor} min-h-[600px]`}
+                className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br ${pkg.gradient} border-2 ${pkg.borderColor} min-h-[600px] flex flex-col`}
                 data-aos="fade-up"
                 data-aos-delay={index * 200}
               >
@@ -124,7 +132,7 @@ export function TourPackages() {
                   </p>
                 </CardHeader>
 
-                <CardContent className="pt-0">
+                <CardContent className="pt-0 flex-1 flex flex-col">
                   {/* Features List */}
                   <div className="space-y-3 mb-6">
                     {pkg.features.slice(0, 5).map((feature, featureIndex) => (
@@ -151,18 +159,21 @@ export function TourPackages() {
                     <p className="text-xs text-muted-foreground">{pkg.includes}</p>
                   </div>
 
-                  {/* CTA Button */}
-                  <Button 
-                    className={`w-full ${
-                      index === 1 
-                        ? 'bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white' 
-                        : index === 2
-                        ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white'
-                        : 'bg-primary hover:bg-primary/90'
-                    }`}
-                  >
-                    Book {pkg.name}
-                  </Button>
+                  {/* CTA Button - pushed to bottom with mt-auto */}
+                  <div className="mt-auto">
+                    <Button 
+                      onClick={scrollToContact}
+                      className={`w-full ${
+                        index === 1 
+                          ? 'bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white' 
+                          : index === 2
+                          ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white'
+                          : 'bg-primary hover:bg-primary/90'
+                      }`}
+                    >
+                      Book {pkg.name}
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -176,7 +187,7 @@ export function TourPackages() {
               key={pkg.name} 
               className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br ${pkg.gradient} border-2 ${pkg.borderColor} ${
                 index === 1 ? 'lg:scale-105 lg:shadow-xl' : ''
-              }`}
+              } flex flex-col`}
               data-aos="fade-up"
               data-aos-delay={index * 200}
             >
@@ -201,7 +212,7 @@ export function TourPackages() {
                 </p>
               </CardHeader>
 
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 flex-1 flex flex-col">
                 {/* Features List */}
                 <div className="space-y-3 mb-6">
                   {pkg.features.map((feature, featureIndex) => (
@@ -223,18 +234,21 @@ export function TourPackages() {
                   <p className="text-xs text-muted-foreground">{pkg.includes}</p>
                 </div>
 
-                {/* CTA Button */}
-                <Button 
-                  className={`w-full ${
-                    index === 1 
-                      ? 'bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white' 
-                      : index === 2
-                      ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white'
-                      : 'bg-primary hover:bg-primary/90'
-                  }`}
-                >
-                  Book {pkg.name}
-                </Button>
+                {/* CTA Button - pushed to bottom with mt-auto */}
+                <div className="mt-auto">
+                  <Button 
+                    onClick={scrollToContact}
+                    className={`w-full ${
+                      index === 1 
+                        ? 'bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white' 
+                        : index === 2
+                        ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white'
+                        : 'bg-primary hover:bg-primary/90'
+                    }`}
+                  >
+                    Book {pkg.name}
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
