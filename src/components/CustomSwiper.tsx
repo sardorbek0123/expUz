@@ -79,7 +79,7 @@ interface CustomSwiperProps {
 
 export function CustomSwiper({ 
   children, 
-  slidesToShow = 1.2, 
+  slidesToShow = 3, 
   autoplay = true, 
   autoplaySpeed = 4000,
   dots = true,
@@ -102,11 +102,11 @@ export function CustomSwiper({
         preventInteractionOnTransition={true}
         breakpoints={{
           320: {
-            slidesPerView: 1.2,
+            slidesPerView: 3,
             spaceBetween: 8
           },
           480: {
-            slidesPerView: 1.5,
+            slidesPerView: 3,
             spaceBetween: 12
           },
           768: {
