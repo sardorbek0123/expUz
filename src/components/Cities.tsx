@@ -70,8 +70,8 @@ export function Cities() {
         <div className="block md:hidden mb-8">
           <CustomSwiper 
             slidesToShow={3} 
-            autoplay={false} 
-            autoplaySpeed={4000}
+            autoplay={true} 
+            autoplaySpeed={5000}
             dots={true}
             className="pb-8"
           >
