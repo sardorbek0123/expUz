@@ -9,7 +9,7 @@ const packages = [
   {
     name: "Standard Package",
     price: "$1,399",
-    duration: "7 Days",
+    duration: "8 Days & 7 Nights",
     icon: <Zap className="h-3 sm:h-4 w-3 sm:w-4" />,
     badge: "Most Popular",
     badgeColor: "bg-blue-500",
@@ -30,7 +30,7 @@ const packages = [
   {
     name: "Premium Package",
     price: "$1,899",
-    duration: "10 Days",
+    duration: "8 Days & 7 Nights",
     icon: <Star className="h-3 sm:h-4 w-3 sm:w-4" />,
     badge: "Best Value",
     badgeColor: "bg-primary",
@@ -53,7 +53,7 @@ const packages = [
   {
     name: "VIP Package",
     price: "$2,299",
-    duration: "14 Days",
+    duration: "8 Days & 7 Nights",
     icon: <Crown className="h-3 sm:h-4 w-3 sm:w-4" />,
     badge: "Ultimate Luxury",
     badgeColor: "bg-gradient-to-r from-yellow-400 to-orange-500",
@@ -85,11 +85,11 @@ export function TourPackages() {
   };
 
   return (
-    <section id="packages" className="py-12 sm:py-24 bg-gradient-to-b from-secondary/30 to-background">
+    <section id="packages" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
           data-aos="fade-up"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
@@ -102,7 +102,7 @@ export function TourPackages() {
         </div>
 
         {/* Mobile Cards */}
-        <div className="block lg:hidden mb-16">
+        <div className="block lg:hidden mb-8 sm:mb-16">
           <div className="grid grid-cols-3 gap-3">
             {packages.map((pkg, index) => (
               <Card 
@@ -126,7 +126,7 @@ export function TourPackages() {
                       </div>
                     </div>
                   </div>
-                  <CardTitle className="text-sm mb-0 sm:mb-1">{pkg.name}</CardTitle>
+                  <CardTitle className="text-xs sm:text-sm mb-0 sm:mb-1">{pkg.name}</CardTitle>
                   <div className="text-lg font-bold text-primary mb-0 sm:mb-1">{pkg.price}</div>
                   <div className="text-xs text-muted-foreground mb-0 sm:mb-1">{pkg.duration}</div>
                 </CardHeader>
@@ -158,7 +158,7 @@ export function TourPackages() {
                       className={`w-full text-[9px] sm:text-xs ${
                         index === 1 
                           ? 'bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white' 
-                          : index === 2
+                          : index === 2 
                           ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white'
                           : 'bg-primary hover:bg-primary/90'
                       }`}

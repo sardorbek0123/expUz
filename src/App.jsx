@@ -25,8 +25,8 @@ export default function App() {
       <Header />
       <Hero />
       <Cities />
-      <TourPackages />
       <Advantages />
+      <TourPackages />
       <ContactForm />
       <Footer />
     </div>

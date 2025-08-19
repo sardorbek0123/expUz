@@ -50,11 +50,11 @@ const cities = [
 
 export function Cities() {
   return (
-    <section id="cities" className="py-12 sm:py-24 bg-gradient-to-b from-background to-secondary/30">
+    <section id="cities" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
           data-aos="fade-up"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
@@ -69,7 +69,7 @@ export function Cities() {
         {/* Mobile Swiper */}
         <div className="block md:hidden mb-8">
           <CustomSwiper 
-            slidesToShow={3} 
+            slidesToShow={2} 
             autoplay={true} 
             autoplaySpeed={5000}
             dots={true}
@@ -87,7 +87,7 @@ export function Cities() {
                   <ImageWithFallback
                     src={city.image}
                     alt={city.name}
-                    className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   
@@ -212,11 +212,11 @@ export function Cities() {
 
         {/* Call to Action */}
         <div 
-          className="text-center mt-16"
+          className="text-center mt-8 sm:mt-16"
           data-aos="fade-up"
           data-aos-delay="600"
         >
-          <div className="bg-gradient-to-r from-primary/10 to-blue-600/10 rounded-2xl p-8 border border-primary/20">
+          <div className="bg-gradient-to-r from-primary/10 to-blue-600/10 rounded-2xl p-4 sm:p-8 border border-primary/20">
             <h3 className="text-2xl font-bold mb-4">Ready to Explore All Five Cities?</h3>
             <p className="text-muted-foreground mb-6">
               Join our comprehensive tour packages that cover all historic cities with expert guides and comfortable transportation.

@@ -1,3 +1,4 @@
+import React from "react";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -13,7 +14,7 @@ export function Footer() {
     <footer className="bg-gradient-to-b from-muted/50 to-muted border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-16">
+        <div className="py-8 sm:py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div 
@@ -153,7 +154,7 @@ export function Footer() {
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                   <div className="text-sm text-muted-foreground">
-                    info@exploreuzbekistan.com
+                    info@exploreuzb.com
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -169,7 +170,7 @@ export function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div 
+        {/* <div 
           className="py-8 border-t border-border"
           data-aos="fade-up"
           data-aos-delay="500"
@@ -190,7 +191,7 @@ export function Footer() {
               </Button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Bar */}
         <div 

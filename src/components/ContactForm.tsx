@@ -37,7 +37,7 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-12 sm:py-24 bg-gradient-to-b from-secondary/30 to-background">
+      <section id="contact" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-secondary/30 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             className="max-w-2xl mx-auto text-center"
@@ -63,11 +63,11 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-12 sm:py-24 bg-gradient-to-b from-secondary/30 to-background">
+    <section id="contact" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
           data-aos="fade-up"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
@@ -80,75 +80,6 @@ export function ContactForm() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
-          <div 
-            className="grid grid-cols-2 gap-4 md:space-y-6"
-            data-aos="fade-right"
-            data-aos-delay="200"
-          >
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center text-lg">
-                  <MapPin className="h-5 w-5 mr-2 text-primary" />
-                  Our Office
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  123 Amir Timur Street<br />
-                  Tashkent 100000<br />
-                  Uzbekistan
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center text-lg">
-                  <Phone className="h-5 w-5 mr-2 text-primary" />
-                  Phone & WhatsApp
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  +998 71 123 4567<br />
-                  +998 90 123 4567
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center text-lg">
-                  <Mail className="h-5 w-5 mr-2 text-primary" />
-                  Email
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  info@exploreuzbekistan.com<br />
-                  tours@exploreuzbekistan.com
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center text-lg">
-                  <Clock className="h-5 w-5 mr-2 text-primary" />
-                  Business Hours
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Mon - Fri: 9:00 AM - 6:00 PM<br />
-                  Sat - Sun: 10:00 AM - 4:00 PM<br />
-                  <span className="text-sm text-primary">(Tashkent Time, GMT+5)</span>
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
           {/* Contact Form */}
           <div 
             className="lg:col-span-2"
@@ -289,6 +220,75 @@ export function ContactForm() {
                     </p>
                   </div>
                 </form>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact Information */}
+          <div 
+            className="grid grid-cols-2 gap-4 md:space-y-6"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center text-lg">
+                  <MapPin className="h-5 w-5 mr-2 text-primary" />
+                  Our Office
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  123 Amir Timur Street<br />
+                  Tashkent 100000<br />
+                  Uzbekistan
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center text-lg">
+                  <Phone className="h-5 w-5 mr-2 text-primary" />
+                  Phone & WhatsApp
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  +998 71 123 4567<br />
+                  +998 90 123 4567
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center text-lg">
+                  <Mail className="h-5 w-5 mr-2 text-primary" />
+                  Email
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm sm:text-base">
+                  info@exploreuzb.com<br />
+                  tours@exploreuzb.com
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center text-lg">
+                  <Clock className="h-5 w-5 mr-2 text-primary" />
+                  Business Hours
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm sm:text-base">
+                  Mon - Fri: 9:00 AM - 6:00 PM<br />
+                  Sat - Sun: 10:00 AM - 4:00 PM<br />
+                  <span className="text-sm text-primary">(Tashkent Time, GMT+5)</span>
+                </p>
               </CardContent>
             </Card>
           </div>

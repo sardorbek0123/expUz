@@ -102,11 +102,11 @@ export function CustomSwiper({
         preventInteractionOnTransition={true}
         breakpoints={{
           320: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 8
           },
           480: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 12
           },
           768: {
