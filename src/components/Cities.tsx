@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { MapPin, Clock, Camera, Maximize } from "lucide-react";
-import { Play, Pause, Volume2, VolumeX } from "lucide-react";
-
+import { MapPin, Clock, Camera } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { CustomSwiper } from "./CustomSwiper";
 
@@ -11,115 +9,52 @@ const cities = [
   {
     name: "Samarkand",
     description: "Legendary Silk Road city with stunning Islamic architecture",
-    image: "https://images.unsplash.com/photo-1728565721798-cf65c7bf1efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTYW1hcmthbmQlMjBSZWdpc3RhbiUyMFNxdWFyZSUyMFV6YmVraXN0YW58ZW58MXx8fHwxNzU0OTk2MzQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image:
+      "https://images.unsplash.com/photo-1728565721798-cf65c7bf1efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTYW1hcmthbmQlMjBSZWdpc3RhbiUyMFNxdWFyZSUyMFV6YmVraXN0YW58ZW58MXx8fHwxNzU0OTk2MzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     highlights: ["Registan Square", "Shah-i-Zinda", "Bibi Khanum Mosque"],
     duration: "3 days",
-    badge: "UNESCO"
+    badge: "UNESCO",
   },
   {
     name: "Bukhara",
     description: "Living museum of Central Asian Islamic civilization",
-    image: "https://images.unsplash.com/photo-1719995153986-63e529a32585?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxCdWtoYXJhJTIwaGlzdG9yaWMlMjBhcmNoaXRlY3R1cmUlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image:
+      "https://images.unsplash.com/photo-1719995153986-63e529a32585?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxCdWtoYXJhJTIwaGlzdG9yaWMlMjBhcmNoaXRlY3R1cmUlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1NXww&ixlib=rb-4.1.0&q=80&w=1080",
     highlights: ["Poi Kalyan Complex", "Ark Fortress", "Lyab-i-Hauz"],
     duration: "2 days",
-    badge: "UNESCO"
+    badge: "UNESCO",
   },
   {
     name: "Khiva",
     description: "Perfectly preserved medieval city within ancient walls",
-    image: "https://images.unsplash.com/photo-1426329559439-876ed4b77295?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxLaGl2YSUyMGFuY2llbnQlMjBjaXR5JTIwd2FsbHMlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image:
+      "https://images.unsplash.com/photo-1426329559439-876ed4b77295?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxLaGl2YSUyMGFuY2llbnQlMjBjaXR5JTIwd2FsbHMlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1OHww&ixlib=rb-4.1.0&q=80&w=1080",
     highlights: ["Itchan Kala", "Kunya Ark", "Islam Khoja Minaret"],
     duration: "2 days",
-    badge: "UNESCO"
+    badge: "UNESCO",
   },
   {
     name: "Termez",
     description: "Ancient Buddhist heritage meets Islamic architecture",
-    image: "https://images.unsplash.com/photo-1569531955316-e353abac4ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUZXJtZXolMjBCdWRkaGlzdCUyMGhlcml0YWdlJTIwVXpiZWtpc3RhbnxlbnwxfHx8fDE3NTQ5OTYzNjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image:
+      "https://images.unsplash.com/photo-1569531955316-e353abac4ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUZXJtZXolMjBCdWRkaGlzdCUyMGhlcml0YWdlJTIwVXpiZWtpc3RhbnxlbnwxfHx8fDE3NTQ5OTYzNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     highlights: ["Al-Hakim at-Termezi", "Fayaz Tepa", "Sultan Saodat"],
     duration: "1 day",
-    badge: "Buddhist Heritage"
+    badge: "Buddhist Heritage",
   },
   {
     name: "Tashkent",
-    description: "Modern capital blending Soviet architecture with Islamic heritage",
-    image: "https://images.unsplash.com/photo-1681195579718-e738abcaa178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUYXNoa2VudCUyMFV6YmVraXN0YW4lMjBtb2Rlcm4lMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzU0OTk2MzM3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    description:
+      "Modern capital blending Soviet architecture with Islamic heritage",
+    image:
+      "https://images.unsplash.com/photo-1681195579718-e738abcaa178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUYXNoa2VudCUyMFV6YmVraXN0YW4lMjBtb2Rlcm4lMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzU0OTk2MzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     highlights: ["Independence Square", "Chorsu Bazaar", "Modern Metro"],
     duration: "2 days",
-    badge: "Capital"
+    badge: "Capital",
   },
 ];
 
 export function Cities() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isStarted, setIsStarted] = useState(false);
-  const [progress, setProgress] = useState(0);
-
-
-  const handlePlayPause = () => {
-    if (!videoRef.current) return;
-
-    if (!isStarted) {
-      // Подгружаем видео только при первом Play
-      videoRef.current.src = "/video.mp4"; // положи видео в /public
-      setIsStarted(true);
-    }
-
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const handleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(videoRef.current.muted);
-  };
-
-  const handleFullscreen = () => {
-    if (!videoRef.current) return;
-
-    if (videoRef.current.requestFullscreen) {
-      videoRef.current.requestFullscreen();
-    } else if ((videoRef.current as any).webkitRequestFullscreen) {
-      (videoRef.current as any).webkitRequestFullscreen();
-    } else if ((videoRef.current as any).mozRequestFullScreen) {
-      (videoRef.current as any).mozRequestFullScreen();
-    } else if ((videoRef.current as any).msRequestFullscreen) {
-      (videoRef.current as any).msRequestFullscreen();
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (!videoRef.current) return;
-    const percentage =
-      (videoRef.current.currentTime / videoRef.current.duration) * 100;
-    setProgress(percentage || 0);
-  };
-
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!videoRef.current) return;
-    const newTime =
-      (parseFloat(e.target.value) / 100) * videoRef.current.duration;
-    videoRef.current.currentTime = newTime;
-  };
-
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-
-    vid.addEventListener("timeupdate", handleTimeUpdate);
-    return () => {
-      vid.removeEventListener("timeupdate", handleTimeUpdate);
-    };
-  }, []);
-
   return (
     <section
       id="cities"
@@ -140,7 +75,13 @@ export function Cities() {
 
         {/* Mobile Swiper */}
         <div className="block md:hidden mb-8">
-          <CustomSwiper slidesToShow={2} autoplay autoplaySpeed={5000} dots className="pb-8">
+          <CustomSwiper
+            slidesToShow={2}
+            autoplay
+            autoplaySpeed={5000}
+            dots
+            className="pb-8"
+          >
             {cities.map((city, index) => (
               <Card
                 key={city.name}
@@ -272,64 +213,16 @@ export function Cities() {
           ))}
         </div>
 
-        {/* Custom Video Player */}
+        {/* Video (default controls) */}
         <div className="relative w-full max-w-3xl mx-auto mt-12">
           <video
-            ref={videoRef}
             className="w-full aspect-video rounded-lg bg-black"
-            poster="/preview.jpg"
-            preload="none"
-          />
-
-          {/* Custom Controls */}
-          {/* Controls */}
-          
-            <div className="absolute bottom-2 left-0 right-0 flex items-center gap-2 px-3 sm:px-4">
-              {/* Left controls */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={handlePlayPause}
-                  className="bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
-                >
-                  {isPlaying ? (
-                    <Pause className="w-5 h-5" />
-                  ) : (
-                    <Play className="w-5 h-5" />
-                  )}
-                </button>
-
-                <button
-                  onClick={handleMute}
-                  className="bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
-                >
-                  {isMuted ? (
-                    <VolumeX className="w-5 h-5" />
-                  ) : (
-                    <Volume2 className="w-5 h-5" />
-                  )}
-                </button>
-              </div>
-
-              {/* Progress bar (flex-grow) */}
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={progress}
-                onChange={handleSeek}
-                className="flex-grow h-1 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-primary"
-              />
-
-              {/* Right controls */}
-              <button
-                onClick={handleFullscreen}
-                className="bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
-              >
-                <Maximize className="w-5 h-5" />
-              </button>
-            </div>
-          
-      
+            poster="/preview.png"
+            controls
+          >
+            <source src="/video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>

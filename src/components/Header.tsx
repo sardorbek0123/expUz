@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Menu, Globe } from "lucide-react";
@@ -18,8 +19,8 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#home" className="hover:text-primary transition-colors">Home</a>
             <a href="#cities" className="hover:text-primary transition-colors">Cities</a>
-            <a href="#packages" className="hover:text-primary transition-colors">Packages</a>
             <a href="#advantages" className="hover:text-primary transition-colors">Why Choose Us</a>
+            <a href="#packages" className="hover:text-primary transition-colors">Packages</a>
             <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
           </nav>
 

@@ -79,11 +79,11 @@ export function ContactForm() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div 
             className="lg:col-span-2"
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-delay="400"
           >
             <Card className="shadow-xl border-2 border-primary/10">
@@ -223,11 +223,11 @@ export function ContactForm() {
               </CardContent>
             </Card>
           </div>
-
-          {/* Contact Information */}
-          <div 
-            className="grid grid-cols-2 gap-4 md:space-y-6"
-            data-aos="fade-right"
+        </div>
+        {/* Contact Information */}
+        <div 
+            className="grid grid-cols-2 gap-4 mt-4"
+            data-aos="fade-up"
             data-aos-delay="200"
           >
             <Card className="hover:shadow-lg transition-shadow">
@@ -277,22 +277,22 @@ export function ContactForm() {
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-1">
                 <CardTitle className="flex items-center text-lg">
                   <Clock className="h-5 w-5 mr-2 text-primary" />
                   Business Hours
+                  <span className="text-sm text-primary">(Tashkent Time, GMT+5)</span>
+
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm sm:text-base">
                   Mon - Fri: 9:00 AM - 6:00 PM<br />
                   Sat - Sun: 10:00 AM - 4:00 PM<br />
-                  <span className="text-sm text-primary">(Tashkent Time, GMT+5)</span>
                 </p>
               </CardContent>
             </Card>
           </div>
-        </div>
       </div>
     </section>
   );
