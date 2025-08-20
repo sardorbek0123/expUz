@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { MapPin, Clock, Camera } from "lucide-react";
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { CustomSwiper } from './CustomSwiper';
+import { MapPin, Clock, Camera, Maximize } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
+
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { CustomSwiper } from "./CustomSwiper";
 
 const cities = [
   {
@@ -49,34 +51,98 @@ const cities = [
 ];
 
 export function Cities() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+
+  const handlePlayPause = () => {
+    if (!videoRef.current) return;
+
+    if (!isStarted) {
+      // Подгружаем видео только при первом Play
+      videoRef.current.src = "/video.MP4"; // положи видео в /public
+      setIsStarted(true);
+    }
+
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const handleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  const handleFullscreen = () => {
+    if (!videoRef.current) return;
+
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+    } else if ((videoRef.current as any).webkitRequestFullscreen) {
+      (videoRef.current as any).webkitRequestFullscreen();
+    } else if ((videoRef.current as any).mozRequestFullScreen) {
+      (videoRef.current as any).mozRequestFullScreen();
+    } else if ((videoRef.current as any).msRequestFullscreen) {
+      (videoRef.current as any).msRequestFullscreen();
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const percentage =
+      (videoRef.current.currentTime / videoRef.current.duration) * 100;
+    setProgress(percentage || 0);
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!videoRef.current) return;
+    const newTime =
+      (parseFloat(e.target.value) / 100) * videoRef.current.duration;
+    videoRef.current.currentTime = newTime;
+  };
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+
+    vid.addEventListener("timeupdate", handleTimeUpdate);
+    return () => {
+      vid.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, []);
+
   return (
-    <section id="cities" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-background to-secondary/30">
+    <section
+      id="cities"
+      className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-background to-secondary/30"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div 
-          className="text-center mb-8 sm:mb-16"
-          data-aos="fade-up"
-        >
+        <div className="text-center mb-8 sm:mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
             Discover Historic Cities
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Journey through millennia of history as you explore five magnificent cities that showcase 
-            the rich cultural heritage of the ancient Silk Road.
+            Journey through millennia of history as you explore five magnificent
+            cities that showcase the rich cultural heritage of the ancient Silk
+            Road.
           </p>
         </div>
 
         {/* Mobile Swiper */}
         <div className="block md:hidden mb-8">
-          <CustomSwiper 
-            slidesToShow={2} 
-            autoplay={true} 
-            autoplaySpeed={5000}
-            dots={true}
-            className="pb-8"
-          >
+          <CustomSwiper slidesToShow={2} autoplay autoplaySpeed={5000} dots className="pb-8">
             {cities.map((city, index) => (
-              <Card 
+              <Card
                 key={city.name}
                 className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 h-full"
                 data-aos="fade-up"
@@ -90,13 +156,13 @@ export function Cities() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  
+
                   {/* Badge */}
                   <div className="absolute top-1 sm:top-2 left-1 sm:left-2 flex flex-col gap-1 sm:gap-2">
                     <Badge className="bg-primary/90 text-white border-0 text-[10px] sm:text-xs px-1 sm:px-2 py-0 sm:py-1 w-fit">
                       {city.badge}
                     </Badge>
-                    
+
                     {/* Duration */}
                     <div className="flex items-center text-white text-[10px] sm:text-xs bg-black/30 rounded-full px-1 sm:px-2 py-0 sm:py-1 w-fit">
                       <Clock className="h-3 w-3 mr-1" />
@@ -111,26 +177,26 @@ export function Cities() {
                 </div>
 
                 <CardContent className="p-2 md:p-4">
-                  {/* Description */}
                   <p className="text-muted-foreground mb-3 leading-relaxed text-[10px] sm:text-sm line-clamp-2">
                     {city.description}
                   </p>
 
-                  {/* Highlights */}
                   <div className="space-y-1">
                     <div className="flex items-center text-[10px] sm:text-xs font-medium mb-2">
                       <Camera className="h-3 w-3 mr-1 text-primary" />
                       Key Attractions
                     </div>
                     {city.highlights.slice(0, 2).map((highlight) => (
-                      <div key={highlight} className="flex items-start text-xs text-muted-foreground">
+                      <div
+                        key={highlight}
+                        className="flex items-start text-xs text-muted-foreground"
+                      >
                         <MapPin className="h-2 w-2 mr-1 mt-1 text-primary flex-shrink-0" />
                         <span className="line-clamp-1">{highlight}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* CTA */}
                   <div className="mt-4 pt-3 border-t border-border">
                     <button className="text-primary hover:text-primary/80 text-[10px] sm:text-xs font-medium transition-colors group-hover:underline">
                       Explore {city.name} →
@@ -145,13 +211,12 @@ export function Cities() {
         {/* Desktop Grid */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cities.map((city, index) => (
-            <Card 
-              key={city.name} 
+            <Card
+              key={city.name}
               className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-2 border-primary/10 hover:border-primary/30"
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >
-              {/* Image */}
               <div className="relative overflow-hidden">
                 <ImageWithFallback
                   src={city.image}
@@ -159,47 +224,44 @@ export function Cities() {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                
-                {/* Badge */}
+
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-primary/90 text-white border-0">
                     {city.badge}
                   </Badge>
                 </div>
 
-                {/* Duration */}
                 <div className="absolute top-4 right-4 flex items-center text-white text-sm bg-black/30 rounded-full px-3 py-1">
                   <Clock className="h-3 w-3 mr-1" />
                   {city.duration}
                 </div>
 
-                {/* City Name Overlay */}
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-2xl font-bold">{city.name}</h3>
                 </div>
               </div>
 
               <CardContent className="p-6">
-                {/* Description */}
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {city.description}
                 </p>
 
-                {/* Highlights */}
                 <div className="space-y-2">
                   <div className="flex items-center text-sm font-medium mb-2">
                     <Camera className="h-4 w-4 mr-2 text-primary" />
                     Key Attractions
                   </div>
                   {city.highlights.map((highlight) => (
-                    <div key={highlight} className="flex items-start text-sm text-muted-foreground">
+                    <div
+                      key={highlight}
+                      className="flex items-start text-sm text-muted-foreground"
+                    >
                       <MapPin className="h-3 w-3 mr-2 mt-1 text-primary flex-shrink-0" />
                       {highlight}
                     </div>
                   ))}
                 </div>
 
-                {/* CTA */}
                 <div className="mt-6 pt-4 border-t border-border">
                   <button className="text-primary hover:text-primary/80 text-sm font-medium transition-colors group-hover:underline">
                     Explore {city.name} →
@@ -210,21 +272,64 @@ export function Cities() {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div 
-          className="text-center mt-8 sm:mt-16"
-          data-aos="fade-up"
-          data-aos-delay="600"
-        >
-          <div className="bg-gradient-to-r from-primary/10 to-blue-600/10 rounded-2xl p-4 sm:p-8 border border-primary/20">
-            <h3 className="text-2xl font-bold mb-4">Ready to Explore All Five Cities?</h3>
-            <p className="text-muted-foreground mb-6">
-              Join our comprehensive tour packages that cover all historic cities with expert guides and comfortable transportation.
-            </p>
-            <button className="bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg">
-              View Tour Packages
-            </button>
-          </div>
+        {/* Custom Video Player */}
+        <div className="relative w-full max-w-3xl mx-auto mt-12">
+          <video
+            ref={videoRef}
+            className="w-full aspect-video rounded-lg bg-black"
+            poster="/preview.jpg"
+            preload="none"
+          />
+
+          {/* Custom Controls */}
+          {/* Controls */}
+          
+            <div className="absolute bottom-2 left-0 right-0 flex items-center gap-2 px-3 sm:px-4">
+              {/* Left controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handlePlayPause}
+                  className="bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
+                >
+                  {isPlaying ? (
+                    <Pause className="w-5 h-5" />
+                  ) : (
+                    <Play className="w-5 h-5" />
+                  )}
+                </button>
+
+                <button
+                  onClick={handleMute}
+                  className="bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
+                >
+                  {isMuted ? (
+                    <VolumeX className="w-5 h-5" />
+                  ) : (
+                    <Volume2 className="w-5 h-5" />
+                  )}
+                </button>
+              </div>
+
+              {/* Progress bar (flex-grow) */}
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={progress}
+                onChange={handleSeek}
+                className="flex-grow h-1 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-primary"
+              />
+
+              {/* Right controls */}
+              <button
+                onClick={handleFullscreen}
+                className="bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
+              >
+                <Maximize className="w-5 h-5" />
+              </button>
+            </div>
+          
+      
         </div>
       </div>
     </section>
