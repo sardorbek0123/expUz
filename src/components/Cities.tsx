@@ -63,7 +63,7 @@ export function Cities() {
 
     if (!isStarted) {
       // Подгружаем видео только при первом Play
-      videoRef.current.src = "/video.MP4"; // положи видео в /public
+      videoRef.current.src = "/video.mp4"; // положи видео в /public
       setIsStarted(true);
     }
 
