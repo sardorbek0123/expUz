@@ -55,6 +55,16 @@ const cities = [
 ];
 
 export function Cities() {
+  const scrollToVideo = () => {
+    const videoElement = document.querySelector('video');
+    if (videoElement) {
+      videoElement.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+      });
+    }
+  };
+
   return (
     <section
       id="cities"
@@ -139,7 +149,10 @@ export function Cities() {
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-border">
-                    <button className="text-primary hover:text-primary/80 text-[10px] sm:text-xs font-medium transition-colors group-hover:underline">
+                    <button 
+                      onClick={scrollToVideo}
+                      className="text-primary hover:text-primary/80 text-[10px] sm:text-xs font-medium transition-colors group-hover:underline cursor-pointer"
+                    >
                       Explore {city.name} →
                     </button>
                   </div>
@@ -195,7 +208,7 @@ export function Cities() {
                   {city.highlights.map((highlight) => (
                     <div
                       key={highlight}
-                      className="flex items-start text-sm text-muted-foreground"
+                      className="flex items-center text-sm text-muted-foreground"
                     >
                       <MapPin className="h-3 w-3 mr-2 mt-1 text-primary flex-shrink-0" />
                       {highlight}
@@ -204,13 +217,26 @@ export function Cities() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-border">
-                  <button className="text-primary hover:text-primary/80 text-sm font-medium transition-colors group-hover:underline">
+                  <button 
+                    onClick={scrollToVideo}
+                    className="text-primary hover:text-primary/80 text-sm font-medium transition-colors group-hover:underline cursor-pointer"
+                  >
                     Explore {city.name} →
                   </button>
                 </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Video Section */}
+        <div className="text-center mb-8 mt-16" data-aos="fade-up">
+          <h3 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            Experience Uzbekistan
+          </h3>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Watch our immersive video to see the beauty and culture of Uzbekistan come to life
+          </p>
         </div>
 
         {/* Video (default controls) */}
@@ -223,6 +249,27 @@ export function Cities() {
             <source src="/video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          
+          {/* View Packages Button */}
+          <div className="text-center mt-8">
+            <button 
+              onClick={() => {
+                const packagesSection = document.getElementById('packages');
+                if (packagesSection) {
+                  packagesSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                  });
+                }
+              }}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-base"
+            >
+              View Packages
+              <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
