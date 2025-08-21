@@ -210,7 +210,7 @@ export function ContactForm() {
                     <Button 
                       type="submit" 
                       size="lg" 
-                      className="w-full bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white"
+                      className="w-full bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white hover:cursor-pointer"
                     >
                       <Send className="h-4 w-4 mr-2" />
                       Send Inquiry

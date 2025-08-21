@@ -230,7 +230,7 @@ export function TourPackages() {
                 <div className="mt-auto">
                   <Button 
                     onClick={scrollToContact}
-                    className={`w-full ${
+                    className={`hover:cursor-pointer w-full ${
                       index === 1 
                         ? 'bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white' 
                         : index === 2

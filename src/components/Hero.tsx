@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -9,7 +10,7 @@ export function Hero() {
   const { count: experienceCount, ref: experienceRef } = useCounter({ end: 100, duration: 2000 });
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById('cities');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -60,7 +61,7 @@ export function Hero() {
               <Button 
                 onClick={scrollToContact}
                 size="lg" 
-                className="bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white px-8 py-6 text-lg group"
+                className="bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white px-8 py-6 text-lg group hover:cursor-pointer"
               >
                 Start Your Journey
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

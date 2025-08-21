@@ -262,7 +262,7 @@ export function Cities() {
                   });
                 }
               }}
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-base"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white font-medium rounded-lg transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:-translate-y-1 text-base"
             >
               View Packages
               <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
