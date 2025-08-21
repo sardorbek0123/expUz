@@ -3,8 +3,10 @@ import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useCounter } from './hooks/useCounter';
+import { useLanguage } from '../hooks/useLanguage';
 
 export function Hero() {
+  const { t } = useLanguage();
   const { count: citiesCount, ref: citiesRef } = useCounter({ end: 5, duration: 2000 });
   const { count: historyCount, ref: historyRef } = useCounter({ end: 2000, duration: 2500 });
   const { count: experienceCount, ref: experienceRef } = useCounter({ end: 100, duration: 2000 });
@@ -21,7 +23,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1728565721798-cf65c7bf1efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxSZWdpc3RhbiUyMFNxdWFyZSUyMFNhbWFya2FuZCUyMFV6YmVraXN0YW58ZW58MXx8fHwxNzU1NDI5NjE2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+          src="/intro_bg.jpg"
           alt="Registan Square in Samarkand, Uzbekistan - Famous Islamic architecture"
           className="w-full h-full object-cover"
         />
@@ -38,9 +40,9 @@ export function Hero() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Discover the
+              {t('hero.title.part1')}
               <span className="block text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-600 bg-clip-text">
-                Magic of Uzbekistan
+                {t('hero.title.part2')}
               </span>
             </h1>
             
@@ -49,8 +51,7 @@ export function Hero() {
               data-aos="fade-up"
               data-aos-delay="400"
             >
-              Journey through ancient Silk Road cities, marvel at stunning Islamic architecture, 
-              and experience the warm hospitality of Central Asia's crown jewel.
+              {t('hero.subtitle')}
             </p>
 
             <div 
@@ -63,7 +64,7 @@ export function Hero() {
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white px-8 py-6 text-lg group hover:cursor-pointer"
               >
-                Start Your Journey
+                {t('hero.cta')}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -76,15 +77,15 @@ export function Hero() {
             >
               <div className="text-center" ref={citiesRef}>
                 <div className="text-2xl md:text-3xl font-bold text-yellow-400">{citiesCount}</div>
-                <div className="text-sm text-gray-300">Historic Cities</div>
+                <div className="text-sm text-gray-300">{t('hero.stats.cities')}</div>
               </div>
               <div className="text-center" ref={historyRef}>
                 <div className="text-2xl md:text-3xl font-bold text-yellow-400">{historyCount}+</div>
-                <div className="text-sm text-gray-300">Years of History</div>
+                <div className="text-sm text-gray-300">{t('hero.stats.history')}</div>
               </div>
               <div className="text-center" ref={experienceRef}>
                 <div className="text-2xl md:text-3xl font-bold text-yellow-400">{experienceCount}%</div>
-                <div className="text-sm text-gray-300">Authentic Experience</div>
+                <div className="text-sm text-gray-300">{t('hero.stats.experience')}</div>
               </div>
             </div>
           </div>

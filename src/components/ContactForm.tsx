@@ -8,8 +8,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Badge } from "./ui/badge";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "../hooks/useLanguage";
 
 export function ContactForm() {
+  const { t } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -27,7 +29,7 @@ export function ContactForm() {
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitted(true);
-      toast.success("Thank you! We'll contact you within 24 hours to discuss your Uzbekistan adventure.");
+      toast.success(t('contact.form.success'));
     }, 1000);
   };
 
@@ -71,11 +73,10 @@ export function ContactForm() {
           data-aos="fade-up"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            Start Your Journey Today
+            {t('contact.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Ready to explore the wonders of Uzbekistan? Fill out the form below and our travel experts 
-            will create a personalized itinerary just for you.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -101,7 +102,7 @@ export function ContactForm() {
                       data-aos="fade-up"
                       data-aos-delay="600"
                     >
-                      <label className="text-sm font-medium mb-2 block">Full Name *</label>
+                      <label className="text-sm font-medium mb-2 block">{t('contact.form.name')} *</label>
                       <Input
                         type="text"
                         placeholder="Enter your full name"
@@ -114,7 +115,7 @@ export function ContactForm() {
                       data-aos="fade-up"
                       data-aos-delay="650"
                     >
-                      <label className="text-sm font-medium mb-2 block">Email Address *</label>
+                      <label className="text-sm font-medium mb-2 block">{t('contact.form.email')} *</label>
                       <Input
                         type="email"
                         placeholder="Enter your email"
@@ -130,7 +131,7 @@ export function ContactForm() {
                       data-aos="fade-up"
                       data-aos-delay="700"
                     >
-                      <label className="text-sm font-medium mb-2 block">Phone Number</label>
+                      <label className="text-sm font-medium mb-2 block">{t('contact.form.phone')}</label>
                       <Input
                         type="tel"
                         placeholder="Enter your phone number"
@@ -142,7 +143,7 @@ export function ContactForm() {
                       data-aos="fade-up"
                       data-aos-delay="750"
                     >
-                      <label className="text-sm font-medium mb-2 block">Preferred Package</label>
+                      <label className="text-sm font-medium mb-2 block">{t('contact.form.package')}</label>
                       <Select onValueChange={(value) => handleInputChange('package', value)}>
                         <SelectTrigger>
                           <SelectValue placeholder="Select a package" />
@@ -213,10 +214,10 @@ export function ContactForm() {
                       className="w-full bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white hover:cursor-pointer"
                     >
                       <Send className="h-4 w-4 mr-2" />
-                      Send Inquiry
+                      {t('contact.form.submit')}
                     </Button>
                     <p className="text-xs text-muted-foreground mt-2 text-center">
-                      We'll respond within 24 hours with a personalized itinerary and pricing.
+                      {t('contact.form.note')}
                     </p>
                   </div>
                 </form>

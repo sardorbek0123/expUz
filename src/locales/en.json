@@ -1,0 +1,133 @@
+{
+  "header": {
+    "logo": "Explore Uzbekistan",
+    "nav": {
+      "home": "Home",
+      "cities": "Cities",
+      "advantages": "Why Choose Us",
+      "packages": "Packages",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "title": {
+      "part1": "Discover the",
+      "part2": "Magic of Uzbekistan"
+    },
+    "subtitle": "Journey through ancient Silk Road cities, marvel at stunning Islamic architecture, and experience the warm hospitality of Central Asia's crown jewel.",
+    "cta": "Start Your Journey",
+    "stats": {
+      "cities": "Historic Cities",
+      "history": "Years of History",
+      "experience": "Authentic Experience"
+    }
+  },
+  "cities": {
+    "title": "Explore Uzbekistan's Historic Cities",
+    "subtitle": "Each city tells a unique story of the Silk Road's golden age",
+    "attractions": "Key Attractions",
+    "explore": "Explore",
+    "video": {
+      "title": "Experience Uzbekistan",
+      "subtitle": "Watch our immersive video to see the beauty and culture of Uzbekistan come to life",
+      "viewPackages": "View Packages"
+    },
+    "samarkand": {
+      "name": "Samarkand",
+      "description": "The crown jewel of the Silk Road, home to the magnificent Registan Square"
+    },
+    "bukhara": {
+      "name": "Bukhara",
+      "description": "A living museum with over 140 architectural monuments"
+    },
+    "khiva": {
+      "name": "Khiva",
+      "description": "A perfectly preserved ancient city, frozen in time"
+    },
+    "termez": {
+      "name": "Termez",
+      "description": "Ancient Buddhist heritage meets Islamic architecture"
+    },
+    "tashkent": {
+      "name": "Tashkent",
+      "description": "The modern capital with a rich blend of old and new"
+    }
+  },
+  "advantages": {
+    "title": "Why Choose Uzbekistan?",
+    "subtitle": "Experience the perfect blend of history, culture, and adventure",
+    "items": {
+      "history": {
+        "title": "Rich History",
+        "description": "Over 2000 years of civilization along the ancient Silk Road"
+      },
+      "architecture": {
+        "title": "Stunning Architecture",
+        "description": "Breathtaking Islamic architecture and intricate tilework"
+      },
+      "culture": {
+        "title": "Vibrant Culture",
+        "description": "Warm hospitality and authentic Central Asian traditions"
+      },
+      "adventure": {
+        "title": "Unique Adventures",
+        "description": "From desert treks to mountain hikes and cultural experiences"
+      }
+    }
+  },
+  "packages": {
+    "title": "Tour Packages",
+    "subtitle": "Choose your perfect Uzbekistan adventure",
+    "basic": {
+      "title": "Essential Uzbekistan",
+      "description": "Perfect introduction to the main highlights",
+      "duration": "7 days",
+      "price": "From $999"
+    },
+    "cultural": {
+      "title": "Cultural Heritage",
+      "description": "Deep dive into history and traditions",
+      "duration": "10 days",
+      "price": "From $1,499"
+    },
+    "luxury": {
+      "title": "Luxury Silk Road",
+      "description": "Premium experience with exclusive access",
+      "duration": "14 days",
+      "price": "From $2,999"
+    }
+  },
+  "contact": {
+    "title": "Start Your Journey",
+    "subtitle": "Get in touch to plan your perfect Uzbekistan adventure",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "package": "Tour Package",
+      "travelers": "Number of Travelers",
+      "dates": "Preferred Dates",
+      "message": "Additional Information",
+      "submit": "Send Inquiry",
+      "success": "Thank you! We'll contact you within 24 hours to discuss your Uzbekistan adventure.",
+      "note": "We'll respond within 24 hours with a personalized itinerary and pricing."
+    },
+    "info": {
+      "address": "123 Silk Road, Tashkent, Uzbekistan",
+      "phone": "+998 71 123 45 67",
+      "email": "info@exploreuzbekistan.uz",
+      "hours": "Mon-Fri: 9:00 AM - 6:00 PM"
+    }
+  },
+  "footer": {
+    "description": "Your gateway to discovering the wonders of Uzbekistan",
+    "links": {
+      "about": "About Us",
+      "tours": "Tours",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© 2024 Explore Uzbekistan. All rights reserved."
+  }
+}

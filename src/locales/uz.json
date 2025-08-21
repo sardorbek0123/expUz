@@ -1,0 +1,120 @@
+{
+  "header": {
+    "logo": "O'zbekistoni Kashing",
+    "nav": {
+      "home": "Bosh Sahifa",
+      "cities": "Shaharlar",
+      "advantages": "Nega Biz",
+      "packages": "Turlar",
+      "contact": "Aloqa"
+    }
+  },
+  "hero": {
+    "title": {
+      "part1": "O'zbekistonning",
+      "part2": "Sehrini Kash Et"
+    },
+    "subtitle": "Qadimiy Ipak yo'li shaharlari bo'ylab sayohat qiling, ajoyib islom me'morchiligiga hayratda qoling va Markaziy Osiyoning marvaridi - issiq mehmondo'stlikni bilib oling.",
+    "cta": "Sayohatni Boshlash",
+    "stats": {
+      "cities": "Tarixiy Shaharlar",
+      "history": "Yillik Tarix",
+      "experience": "Haqiqiy Tajriba"
+    }
+  },
+  "cities": {
+    "title": "O'zbekistonning Tarixiy Shaharlarini Kashing",
+    "subtitle": "Har bir shahar Ipak yo'lining oltin davri haqida noyob hikoyani aytadi",
+    "attractions": "Asosiy Diqqatga Sazovor Joylar",
+    "explore": "Kash Etish",
+    "video": {
+      "title": "O'zbekistoni Bilib Oling",
+      "subtitle": "O'zbekistonning go'zalligi va madaniyatini jonli ko'rish uchun bizning chuqur video ko'ring",
+      "viewPackages": "Paketlarni Ko'rish"
+    },
+    "samarkand": {
+      "name": "Samarqand",
+      "description": "Ipak yo'lining marvaridi, ajoyib Registon maydonining uyi"
+    },
+    "bukhara": {
+      "name": "Buxoro",
+      "description": "140 dan ortiq me'moriy yodgorliklarga ega jonli muzey"
+    },
+    "khiva": {
+      "name": "Xiva",
+      "description": "Zamonada muzlatilgan mukammal saqlangan qadimiy shahar"
+    },
+    "termez": {
+      "name": "Termiz",
+      "description": "Qadimiy budda merosi islom me'morchiligi bilan uchrashadi"
+    },
+    "tashkent": {
+      "name": "Toshkent",
+      "description": "Eskilik va yangilikning boy aralashmasiga ega zamonaviy poytaxt"
+    }
+  },
+  "advantages": {
+    "title": "Nega O'zbekistonni Tanlashingiz Kerak?",
+    "subtitle": "Tarix, madaniyat va sarguzashtning mukammal aralashmasini bilib oling",
+    "items": {
+      "history": {
+        "title": "Boy Tarix",
+        "description": "Qadimiy Ipak yo'li bo'ylab 2000 yildan ortiq tsivilizatsiya"
+      },
+      "architecture": {
+        "title": "Ajoyib Me'morchilik",
+        "description": "Nafasni to'xtatadigan islom me'morchiligi va murakkab koshinkorlik"
+      },
+      "culture": {
+        "title": "Jonli Madaniyat",
+        "description": "Issiq mehmondo'stlik va haqiqiy markaziy osiyo an'analari"
+      },
+      "adventure": {
+        "title": "Noyob Sarguzashtlar",
+        "description": "Cho'l sayohatlaridan tog' sayohatlarigacha va madaniy tajribalar"
+      }
+    }
+  },
+  "packages": {
+    "title": "Turistik Paketlar",
+    "subtitle": "O'zbekistondagi mukammal sarguzashtingizni tanlang",
+    "basic": {
+      "title": "Asosiy O'zbekiston",
+      "description": "Asosiy diqqatga sazovor joylarga mukammal kirish",
+      "duration": "7 kun",
+      "price": "999$ dan"
+    },
+    "cultural": {
+      "title": "Madaniy Meros",
+      "description": "Tarix va an'analarga chuqur kirish",
+      "duration": "10 kun",
+      "price": "1,499$ dan"
+    },
+    "luxury": {
+      "title": "Hashamatli Ipak Yo'li",
+      "description": "Eksklyuziv kirish bilan premium tajriba",
+      "duration": "14 kun",
+      "price": "2,999$ dan"
+    }
+  },
+  "contact": {
+    "title": "Sayohatni Boshlash",
+    "subtitle": "O'zbekistondagi mukammal sarguzashtingizni rejalashtirish uchun biz bilan bog'laning",
+    "form": {
+      "name": "To'liq Ism",
+      "email": "Elektron Pochta",
+      "phone": "Telefon Raqami",
+      "message": "Xabar",
+      "submit": "Yuborish"
+    }
+  },
+  "footer": {
+    "description": "O'zbekistonning go'zalligi va madaniyatini kash eting",
+    "links": {
+      "about": "Haqida",
+      "privacy": "Maxfiylik",
+      "terms": "Shartlar"
+    },
+    "copyright": "Barcha huquqlar himoyalangan"
+  }
+}

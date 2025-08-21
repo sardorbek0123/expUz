@@ -4,57 +4,15 @@ import { Badge } from "./ui/badge";
 import { MapPin, Clock, Camera } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { CustomSwiper } from "./CustomSwiper";
-
-const cities = [
-  {
-    name: "Samarkand",
-    description: "Legendary Silk Road city with stunning Islamic architecture",
-    image:
-      "https://images.unsplash.com/photo-1728565721798-cf65c7bf1efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTYW1hcmthbmQlMjBSZWdpc3RhbiUyMFNxdWFyZSUyMFV6YmVraXN0YW58ZW58MXx8fHwxNzU0OTk2MzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    highlights: ["Registan Square", "Shah-i-Zinda", "Bibi Khanum Mosque"],
-    duration: "3 days",
-    badge: "UNESCO",
-  },
-  {
-    name: "Bukhara",
-    description: "Living museum of Central Asian Islamic civilization",
-    image:
-      "https://images.unsplash.com/photo-1719995153986-63e529a32585?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxCdWtoYXJhJTIwaGlzdG9yaWMlMjBhcmNoaXRlY3R1cmUlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1NXww&ixlib=rb-4.1.0&q=80&w=1080",
-    highlights: ["Poi Kalyan Complex", "Ark Fortress", "Lyab-i-Hauz"],
-    duration: "2 days",
-    badge: "UNESCO",
-  },
-  {
-    name: "Khiva",
-    description: "Perfectly preserved medieval city within ancient walls",
-    image:
-      "https://images.unsplash.com/photo-1426329559439-876ed4b77295?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxLaGl2YSUyMGFuY2llbnQlMjBjaXR5JTIwd2FsbHMlMjBVemJla2lzdGFufGVufDF8fHx8MTc1NDk5NjM1OHww&ixlib=rb-4.1.0&q=80&w=1080",
-    highlights: ["Itchan Kala", "Kunya Ark", "Islam Khoja Minaret"],
-    duration: "2 days",
-    badge: "UNESCO",
-  },
-  {
-    name: "Termez",
-    description: "Ancient Buddhist heritage meets Islamic architecture",
-    image:
-      "https://images.unsplash.com/photo-1569531955316-e353abac4ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUZXJtZXolMjBCdWRkaGlzdCUyMGhlcml0YWdlJTIwVXpiZWtpc3RhbnxlbnwxfHx8fDE3NTQ5OTYzNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    highlights: ["Al-Hakim at-Termezi", "Fayaz Tepa", "Sultan Saodat"],
-    duration: "1 day",
-    badge: "Buddhist Heritage",
-  },
-  {
-    name: "Tashkent",
-    description:
-      "Modern capital blending Soviet architecture with Islamic heritage",
-    image:
-      "https://images.unsplash.com/photo-1681195579718-e738abcaa178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUYXNoa2VudCUyMFV6YmVraXN0YW4lMjBtb2Rlcm4lMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzU0OTk2MzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    highlights: ["Independence Square", "Chorsu Bazaar", "Modern Metro"],
-    duration: "2 days",
-    badge: "Capital",
-  },
-];
+import { useLanguage } from "../hooks/useLanguage";
+import { getCityData } from "../constants/cities";
 
 export function Cities() {
+  const { t, currentLanguage } = useLanguage();
+  
+  // Получаем данные городов на текущем языке
+  const cities = getCityData(currentLanguage);
+  
   const scrollToVideo = () => {
     const videoElement = document.querySelector('video');
     if (videoElement) {
@@ -74,12 +32,10 @@ export function Cities() {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            Discover Historic Cities
+            {t('cities.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Journey through millennia of history as you explore five magnificent
-            cities that showcase the rich cultural heritage of the ancient Silk
-            Road.
+            {t('cities.subtitle')}
           </p>
         </div>
 
@@ -132,11 +88,11 @@ export function Cities() {
                     {city.description}
                   </p>
 
-                  <div className="space-y-1">
-                    <div className="flex items-center text-[10px] sm:text-xs font-medium mb-2">
-                      <Camera className="h-3 w-3 mr-1 text-primary" />
-                      Key Attractions
-                    </div>
+                                     <div className="space-y-1">
+                     <div className="flex items-center text-[10px] sm:text-xs font-medium mb-2">
+                       <Camera className="h-3 w-3 mr-1 text-primary" />
+                       {t('cities.attractions')}
+                     </div>
                     {city.highlights.slice(0, 2).map((highlight) => (
                       <div
                         key={highlight}
@@ -149,12 +105,12 @@ export function Cities() {
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-border">
-                    <button 
-                      onClick={scrollToVideo}
-                      className="text-primary hover:text-primary/80 text-[10px] sm:text-xs font-medium transition-colors group-hover:underline cursor-pointer"
-                    >
-                      Explore {city.name} →
-                    </button>
+                                         <button 
+                       onClick={scrollToVideo}
+                       className="text-primary hover:text-primary/80 text-[10px] sm:text-xs font-medium transition-colors group-hover:underline cursor-pointer"
+                     >
+                       {t('cities.explore')} {city.name} →
+                     </button>
                   </div>
                 </CardContent>
               </Card>
@@ -200,11 +156,11 @@ export function Cities() {
                   {city.description}
                 </p>
 
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm font-medium mb-2">
-                    <Camera className="h-4 w-4 mr-2 text-primary" />
-                    Key Attractions
-                  </div>
+                                 <div className="space-y-2">
+                   <div className="flex items-center text-sm font-medium mb-2">
+                     <Camera className="h-4 w-4 mr-2 text-primary" />
+                     {t('cities.attractions')}
+                   </div>
                   {city.highlights.map((highlight) => (
                     <div
                       key={highlight}
@@ -216,34 +172,34 @@ export function Cities() {
                   ))}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-border">
-                  <button 
-                    onClick={scrollToVideo}
-                    className="text-primary hover:text-primary/80 text-sm font-medium transition-colors group-hover:underline cursor-pointer"
-                  >
-                    Explore {city.name} →
-                  </button>
-                </div>
+                                 <div className="mt-6 pt-4 border-t border-border">
+                   <button 
+                     onClick={scrollToVideo}
+                     className="text-primary hover:text-primary/80 text-sm font-medium transition-colors group-hover:underline cursor-pointer"
+                   >
+                     {t('cities.explore')} {city.name} →
+                   </button>
+                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Video Section */}
-        <div className="text-center mb-8 mt-16" data-aos="fade-up">
-          <h3 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            Experience Uzbekistan
-          </h3>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Watch our immersive video to see the beauty and culture of Uzbekistan come to life
-          </p>
-        </div>
+                 {/* Video Section */}
+         <div className="text-center mb-8 mt-16" data-aos="fade-up">
+           <h3 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+             {t('cities.video.title')}
+           </h3>
+           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+             {t('cities.video.subtitle')}
+           </p>
+         </div>
 
         {/* Video (default controls) */}
         <div className="relative w-full max-w-3xl mx-auto mt-12">
           <video
             className="w-full aspect-video rounded-lg bg-black"
-            poster="/preview.png"
+            poster="/preview.webp"
             controls
           >
             <source src="/video.mp4" type="video/mp4" />
@@ -263,12 +219,12 @@ export function Cities() {
                 }
               }}
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-orange-500 hover:from-orange-500 hover:to-primary text-white font-medium rounded-lg transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:-translate-y-1 text-base"
-            >
-              View Packages
-              <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
+             >
+               {t('cities.video.viewPackages')}
+               <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+               </svg>
+             </button>
           </div>
         </div>
       </div>

@@ -1,8 +1,11 @@
 import React from "react";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Button } from "./ui/button";
+import { useLanguage } from "../hooks/useLanguage";
 
 export function Footer() {
+  const { t } = useLanguage();
+  
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -24,8 +27,7 @@ export function Footer() {
             >
               <h3 className="text-xl font-bold text-primary">Explore Uzbekistan</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Your gateway to discovering the ancient wonders and modern marvels of Uzbekistan. 
-                We create authentic, comfortable, and unforgettable travel experiences.
+                {t('footer.description')}
               </p>
               <div className="flex space-x-4">
                 <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
@@ -201,14 +203,14 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground">
-              © 2024 Explore Uzbekistan. All rights reserved.
+              {t('footer.copyright')}
             </div>
             <div className="flex space-x-6">
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Privacy Policy
+                {t('footer.links.privacy')}
               </a>
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
+                {t('footer.links.terms')}
               </a>
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Cookie Policy
