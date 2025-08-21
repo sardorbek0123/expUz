@@ -4,79 +4,53 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Check, Star, Crown, Zap } from "lucide-react";
 import { CustomSwiper } from './CustomSwiper';
-
-const packages = [
-  {
-    name: "Standard Package",
-    price: "$1,399",
-    duration: "8 Days & 7 Nights",
-    icon: <Zap className="h-3 sm:h-4 w-3 sm:w-4" />,
-    badge: "Most Popular",
-    badgeColor: "bg-blue-500",
-    description: "Perfect introduction to Uzbekistan's highlights with comfortable accommodations and guided group tours.",
-    features: [
-      "2–3★ hotels with daily breakfast",
-      "One-way airport transfer",
-      "Shared transport between cities",
-      "Group sightseeing in major cities with guide",
-      "Main site entrance fees",
-      "Daily breakfast + some meals per itinerary",
-      "Local support & basic travel tips"
-    ],
-    includes: "Budget accommodation, breakfast, group tours, basic support",
-    gradient: "from-blue-500/20 to-cyan-500/20",
-    borderColor: "border-blue-500/30"
-  },
-  {
-    name: "Premium Package",
-    price: "$1,899",
-    duration: "8 Days & 7 Nights",
-    icon: <Star className="h-3 sm:h-4 w-3 sm:w-4" />,
-    badge: "Best Value",
-    badgeColor: "bg-primary",
-    description: "Enhanced experience with quality hotels, private transport, and authentic local experiences.",
-    features: [
-      "4★ hotels with breakfast & 2–3 curated meals",
-      "Round-trip airport transfers",
-      "Fast train/private car between cities",
-      "Private/small-group guided tours",
-      "All entrance fees & museum visits",
-      "Local experiences (workshops, cooking class, hammam)",
-      "SIM/Wi-Fi on request",
-      "Travel insurance included",
-      "Enhanced support throughout journey"
-    ],
-    includes: "4-star hotels, curated meals, private transport, local experiences",
-    gradient: "from-primary/20 to-orange-500/20",
-    borderColor: "border-primary/30"
-  },
-  {
-    name: "VIP Package",
-    price: "$2,299",
-    duration: "8 Days & 7 Nights",
-    icon: <Crown className="h-3 sm:h-4 w-3 sm:w-4" />,
-    badge: "Ultimate Luxury",
-    badgeColor: "bg-gradient-to-r from-yellow-400 to-orange-500",
-    description: "Ultimate luxury experience with boutique hotels, VIP services, and exclusive access throughout.",
-    features: [
-      "4★ or 5★ boutique luxury hotels with meals",
-      "VIP airport service & private transfers",
-      "Expert guide & 24/7 concierge",
-      "All fees + exclusive after-hours visits",
-      "Private events & exclusive experiences",
-      "Custom itinerary & bespoke activities",
-      "Premium insurance coverage",
-      "Welcome amenities included",
-      "All gratuities included",
-      "Personal concierge service"
-    ],
-    includes: "Luxury hotels, VIP services, custom experiences, full concierge",
-    gradient: "from-yellow-400/20 to-orange-500/20",
-    borderColor: "border-yellow-500/30"
-  }
-];
+import { useLanguage } from '../hooks/useLanguage';
 
 export function TourPackages() {
+  const { t } = useLanguage();
+
+  const packages = [
+    {
+      name: t('packages.standard.name'),
+      price: t('packages.standard.price'),
+      duration: t('packages.standard.duration'),
+      icon: <Zap className="h-3 sm:h-4 w-3 sm:w-4" />,
+      badge: t('packages.standard.badge'),
+      badgeColor: "bg-blue-500",
+      description: t('packages.standard.description'),
+      features: t('packages.standard.features', { returnObjects: true }),
+      includes: t('packages.standard.includes'),
+      gradient: "from-blue-500/20 to-cyan-500/20",
+      borderColor: "border-blue-500/30"
+    },
+    {
+      name: t('packages.premium.name'),
+      price: t('packages.premium.price'),
+      duration: t('packages.premium.duration'),
+      icon: <Star className="h-3 sm:h-4 w-3 sm:w-4" />,
+      badge: t('packages.premium.badge'),
+      badgeColor: "bg-primary",
+      description: t('packages.premium.description'),
+      features: t('packages.premium.features', { returnObjects: true }),
+      includes: t('packages.premium.includes'),
+      gradient: "from-primary/20 to-orange-500/20",
+      borderColor: "border-primary/30"
+    },
+    {
+      name: t('packages.vip.name'),
+      price: t('packages.vip.price'),
+      duration: t('packages.vip.duration'),
+      icon: <Crown className="h-3 sm:h-4 w-3 sm:w-4" />,
+      badge: t('packages.vip.badge'),
+      badgeColor: "bg-gradient-to-r from-yellow-400 to-orange-500",
+      description: t('packages.vip.description'),
+      features: t('packages.vip.features', { returnObjects: true }),
+      includes: t('packages.vip.includes'),
+      gradient: "from-yellow-400/20 to-orange-500/20",
+      borderColor: "border-yellow-500/30"
+    }
+  ];
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -93,11 +67,10 @@ export function TourPackages() {
           data-aos="fade-up"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            Choose Your Adventure
+            {t('packages.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            From comfortable group tours to luxury private experiences, we have the perfect package 
-            to match your travel style and create unforgettable memories in Uzbekistan.
+            {t('packages.subtitle')}
           </p>
         </div>
 
@@ -134,7 +107,7 @@ export function TourPackages() {
                 <CardContent className="pt-0 flex-1 flex flex-col px-1 sm:px-3 pb-1 sm:pb-3">
                   {/* Features List - limited to 3 */}
                   <div className="space-y-0.5 sm:space-y-1 mb-1 sm:mb-3">
-                    {pkg.features.slice(0, 3).map((feature, featureIndex) => (
+                    {Array.isArray(pkg.features) && pkg.features.slice(0, 3).map((feature, featureIndex) => (
                       <div 
                         key={feature} 
                         className="flex items-start"
@@ -163,7 +136,7 @@ export function TourPackages() {
                           : 'bg-primary hover:bg-primary/90'
                       }`}
                     >
-                      Book Now
+                      {t('packages.bookNow')}
                     </Button>
                   </div>
                 </CardContent>
@@ -207,7 +180,7 @@ export function TourPackages() {
               <CardContent className="pt-0 flex-1 flex flex-col">
                 {/* Features List */}
                 <div className="space-y-3 mb-6">
-                  {pkg.features.map((feature, featureIndex) => (
+                  {Array.isArray(pkg.features) && pkg.features.map((feature, featureIndex) => (
                     <div 
                       key={feature} 
                       className="flex items-start"
@@ -222,7 +195,7 @@ export function TourPackages() {
 
                 {/* Includes */}
                 <div className="bg-muted/50 rounded-lg p-4 mb-6">
-                  <h4 className="font-semibold text-sm mb-2">Package Includes:</h4>
+                  <h4 className="font-semibold text-sm mb-2">{t('packages.packageIncludes')}</h4>
                   <p className="text-xs text-muted-foreground">{pkg.includes}</p>
                 </div>
 
@@ -238,7 +211,7 @@ export function TourPackages() {
                         : 'bg-primary hover:bg-primary/90'
                     }`}
                   >
-                    Book {pkg.name}
+                    {t('packages.bookNow')} {pkg.name}
                   </Button>
                 </div>
               </CardContent>
@@ -254,15 +227,15 @@ export function TourPackages() {
         >
           <div className="p-6 bg-white/50 rounded-lg border border-primary/10">
             <div className="text-2xl font-bold text-primary mb-2">100%</div>
-            <div className="text-sm text-muted-foreground">Satisfaction Guarantee</div>
+            <div className="text-sm text-muted-foreground">{t('packages.additionalInfo.satisfaction')}</div>
           </div>
           <div className="p-6 bg-white/50 rounded-lg border border-primary/10">
             <div className="text-2xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-sm text-muted-foreground">Customer Support</div>
+            <div className="text-sm text-muted-foreground">{t('packages.additionalInfo.support')}</div>
           </div>
           <div className="p-6 bg-white/50 rounded-lg border border-primary/10">
             <div className="text-2xl font-bold text-primary mb-2">Free</div>
-            <div className="text-sm text-muted-foreground">Cancellation up to 48h</div>
+            <div className="text-sm text-muted-foreground">{t('packages.additionalInfo.cancellation')}</div>
           </div>
         </div>
       </div>

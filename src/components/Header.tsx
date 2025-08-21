@@ -41,7 +41,7 @@ export function Header() {
               <SelectContent>
                 <SelectItem value="en">Eng</SelectItem>
                 <SelectItem value="ru">Рус</SelectItem>
-                {/* <SelectItem value="uz">O'zbekcha</SelectItem> */}
+                <SelectItem value="uz">O'zbekcha</SelectItem>
               </SelectContent>
             </Select>
 

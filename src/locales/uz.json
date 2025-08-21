@@ -54,48 +54,110 @@
     }
   },
   "advantages": {
-    "title": "Nega O'zbekistonni Tanlashingiz Kerak?",
-    "subtitle": "Tarix, madaniyat va sarguzashtning mukammal aralashmasini bilib oling",
-    "items": {
-      "history": {
-        "title": "Boy Tarix",
-        "description": "Qadimiy Ipak yo'li bo'ylab 2000 yildan ortiq tsivilizatsiya"
+    "title": "Nega Explore Uzbekistanni Tanlashingiz Kerak",
+    "subtitle": "Biz O'zbekiston bo'ylab sizning sayohatingizni qulay, haqiqiy va unutilmas qilish uchun har bir tafsilotga e'tibor bilan keng qamrovli sayohat yechimlarini taqdim etamiz.",
+    "transport": {
+      "title": "Yuqori Sifatli Transport",
+      "description": "Shaharlar o'rtasida qulay sayohatlar uchun tajribali haydovchilar bilan zamonaviy konditsionerli avtomobillar",
+      "features": ["Tez poyezdlari mavjud", "Xususiy avtomobil variantlari", "Aeroport transferlari kiritilgan"]
+    },
+    "hotels": {
+      "title": "Sifatli Me'morxonalar",
+      "description": "Qulay 3 yulduzdan hashamatli 5 yulduzgacha bo'lgan ob'ektlardan iborat diqqat bilan tanlangan joylar",
+      "features": ["Kunlik nonushta kiritilgan", "Markaziy joylashuv", "An'anaviy va zamonaviy variantlar"]
+    },
+    "guides": {
+      "title": "Mutaxassis Yo'riqchilar",
+      "description": "Har bir yo'nalishning tarixi, madaniyati va yashirin boyliklari haqida chuqur bilimga ega litsenziyalangan mahalliy yo'riqchilar",
+      "features": ["Ko'p tilli yordam", "Madaniy tushunchalar", "Moslashuvchan marshrutlar"]
+    },
+    "stats": {
+      "happyTravelers": "Baxtli Sayohatchilar",
+      "satisfactionRate": "Mamnuniyat Darajasi",
+      "yearsExperience": "Yillik Tajriba",
+      "supportAvailable": "Yordam Mavjud"
+    },
+    "benefits": {
+      "licensed": {
+        "title": "Litsenziyalangan va Sertifikatlangan",
+        "description": "Barcha yo'riqchilarimiz litsenziyalangan va kompaniyamiz O'zbekiston turizm hokimiyatlari tomonidan sertifikatlangan."
       },
-      "architecture": {
-        "title": "Ajoyib Me'morchilik",
-        "description": "Nafasni to'xtatadigan islom me'morchiligi va murakkab koshinkorlik"
+      "reviews": {
+        "title": "5 Yulduzli Baholar",
+        "description": "TripAdvisor, Google va boshqa platformalarda sayohatchilar tomonidan doimiy ravishda 5 yulduz oladi."
       },
-      "culture": {
-        "title": "Jonli Madaniyat",
-        "description": "Issiq mehmondo'stlik va haqiqiy markaziy osiyo an'analari"
-      },
-      "adventure": {
-        "title": "Noyob Sarguzashtlar",
-        "description": "Cho'l sayohatlaridan tog' sayohatlarigacha va madaniy tajribalar"
+      "insurance": {
+        "title": "Sayohat Sug'urtasi",
+        "description": "Tinchlik uchun Premium va VIP paketlarga kiritilgan keng qamrovli sayohat sug'urtasi."
       }
     }
   },
   "packages": {
-    "title": "Turistik Paketlar",
-    "subtitle": "O'zbekistondagi mukammal sarguzashtingizni tanlang",
-    "basic": {
-      "title": "Asosiy O'zbekiston",
-      "description": "Asosiy diqqatga sazovor joylarga mukammal kirish",
-      "duration": "7 kun",
-      "price": "999$ dan"
+    "title": "O'zingizning Sarguzashtingizni Tanlang",
+    "subtitle": "Qulay guruh turlaridan hashamatli xususiy tajribalargacha - bizda sizning sayohat uslubingizga mos keladigan va O'zbekistonda unutilmas xotiralar yaratadigan mukammal paket mavjud.",
+    "standard": {
+      "name": "Standart Paket",
+      "price": "$1,399",
+      "duration": "8 Kun va 7 Tun",
+      "badge": "Eng Mashhur",
+      "description": "Qulay joylashuv va yo'riqlangan guruh turlari bilan O'zbekistonning asosiy diqqatga sazovor joylariga mukammal kirish.",
+      "features": [
+        "Kunlik nonushta bilan 2–3★ me'morxonalar",
+        "Bir tomonlama aeroport transferi",
+        "Shaharlar o'rtasida umumiy transport",
+        "Yo'riqchi bilan asosiy shaharlarda guruh sayohatlari",
+        "Asosiy joylarga kirish to'lovlari",
+        "Kunlik nonushta + marshrut bo'yicha ba'zi ovqatlar",
+        "Mahalliy yordam va sayohat bo'yicha asosiy maslahatlar"
+      ],
+      "includes": "Byudjet joylashuv, nonushta, guruh turlari, asosiy yordam"
     },
-    "cultural": {
-      "title": "Madaniy Meros",
-      "description": "Tarix va an'analarga chuqur kirish",
-      "duration": "10 kun",
-      "price": "1,499$ dan"
+    "premium": {
+      "name": "Premium Paket",
+      "price": "$1,899",
+      "duration": "8 Kun va 7 Tun",
+      "badge": "Eng Yaxshi Narx",
+      "description": "Sifatli me'morxonalar, xususiy transport va haqiqiy mahalliy tajribalar bilan yaxshilangan tajriba.",
+      "features": [
+        "Nonushta va 2–3 ta tanlangan ovqat bilan 4★ me'morxonalar",
+        "Aeroportga va aeroportdan transferlar",
+        "Shaharlar o'rtasida tez poyezdlar/xususiy avtomobillar",
+        "Xususiy/kichik guruh yo'riqlangan turlar",
+        "Barcha kirish to'lovlari va muzey tashriflari",
+        "Mahalliy tajribalar (ustaxonlar, oshpazlik darsi, hammom)",
+        "So'rov bo'yicha SIM/Wi-Fi",
+        "Sayohat sug'urtasi kiritilgan",
+        "Butun sayohat davomida yaxshilangan yordam"
+      ],
+      "includes": "4 yulduzli me'morxonalar, tanlangan ovqatlar, xususiy transport, mahalliy tajribalar"
     },
-    "luxury": {
-      "title": "Hashamatli Ipak Yo'li",
-      "description": "Eksklyuziv kirish bilan premium tajriba",
-      "duration": "14 kun",
-      "price": "2,999$ dan"
-    }
+    "vip": {
+      "name": "VIP Paket",
+      "price": "$2,299",
+      "duration": "8 Kun va 7 Tun",
+      "badge": "Maksimal Hashamat",
+      "description": "Butun davomida butik me'morxonalar, VIP xizmatlar va eksklyuziv kirish bilan maksimal hashamatli tajriba.",
+      "features": [
+        "Ovqat bilan 4★ yoki 5★ butik hashamatli me'morxonalar",
+        "VIP aeroport xizmati va xususiy transferlar",
+        "Mutaxassis yo'riqchi va 24/7 konsyerj",
+        "Barcha to'lovlar + ish soatlaridan keyin eksklyuziv tashriflar",
+        "Xususiy tadbirlar va eksklyuziv tajribalar",
+        "Maxsus marshrut va individual faoliyatlar",
+        "Premium sug'urta qoplamasi",
+        "Xush kelibsiz qulayliklari kiritilgan",
+        "Barcha chaqimlar kiritilgan",
+        "Shaxsiy konsyerj xizmati"
+      ],
+      "includes": "Hashamatli me'morxonalar, VIP xizmatlar, maxsus tajribalar, to'liq konsyerj"
+    },
+    "additionalInfo": {
+      "satisfaction": "Mamnuniyat Kafolati",
+      "support": "Mijozlarni Qo'llab-quvvatlash",
+      "cancellation": "48 soatgacha bepul bekor qilish"
+    },
+    "bookNow": "Hozir Bron Qilish",
+    "packageIncludes": "Paket Kiritadi:"
   },
   "contact": {
     "title": "Sayohatni Boshlash",
@@ -104,17 +166,88 @@
       "name": "To'liq Ism",
       "email": "Elektron Pochta",
       "phone": "Telefon Raqami",
-      "message": "Xabar",
-      "submit": "Yuborish"
+      "package": "Tur Paketi",
+      "travelers": "Sayohatchilar Soni",
+      "dates": "Afzal Ko'rilgan Sayohat Sanalari",
+      "message": "Qo'shimcha Ma'lumot",
+      "submit": "So'rov Yuborish",
+      "success": "Rahmat! Sizning O'zbekiston sarguzashtingizni muhokama qilish va shaxsiy tavsiyalar berish uchun bizning sayohat mutaxassislarimiz 24 soat ichida siz bilan bog'lanishadi.",
+      "note": "Biz 24 soat ichida shaxsiy marshrut va narxlar bilan javob beramiz."
+    },
+    "info": {
+      "address": "123 Amir Temur ko'chasi, Toshkent 100000, O'zbekiston",
+      "phone": "+998 71 123 4567",
+      "email": "info@exploreuzb.com",
+      "hours": "Dush-Pay: 9:00 - 18:00"
+    },
+    "ui": {
+      "planAdventure": "Sarguzashtingizni Rejalashtirish",
+      "planAdventureDesc": "Sayohat afzalliklaringiz haqida gapirib bering va biz siz uchun O'zbekistonda mukammal tajriba yaratamiz.",
+      "enterFullName": "To'liq ismingizni kiriting",
+      "enterEmail": "Elektron pochtangizni kiriting",
+      "enterPhone": "Telefon raqamingizni kiriting",
+      "selectPackage": "Paketni tanlang",
+      "selectNumber": "Sonni tanlang",
+      "enterDates": "masalan, mart 2025 yoki bahor 2025",
+      "enterMessage": "Qiziqishlaringiz, maxsus talablaringiz yoki har qanday savollaringiz haqida gapirib bering...",
+      "thankYou": "Rahmat!",
+      "thankYouDesc": "Sizning so'rovingiz qabul qilindi. Bizning sayohat mutaxassislarimiz sizning O'zbekiston sarguzashtingizni muhokama qilish va shaxsiy tavsiyalar berish uchun 24 soat ichida siz bilan bog'lanishadi.",
+      "expectedResponse": "Kutilayotgan javob: 24 soat ichida"
+    },
+    "packages": {
+      "standard": "Standart Paket - $899",
+      "premium": "Premium Paket - $1,499",
+      "vip": "VIP Paket - $2,299",
+      "custom": "Maxsus Paket"
+    },
+    "travelers": {
+      "1": "1 Kishi",
+      "2": "2 Kishi",
+      "3-4": "3-4 Kishi",
+      "5-8": "5-8 Kishi",
+      "9+": "9+ Kishi (Guruh)"
+    },
+    "contactInfo": {
+      "ourOffice": "Bizning Ofis",
+      "phoneWhatsapp": "Telefon va WhatsApp",
+      "email": "Elektron Pochta",
+      "businessHours": "Ish Soatlari",
+      "tashkentTime": "(Toshkent vaqti, GMT+5)",
+      "monFri": "Dush - Pay: 9:00 - 18:00",
+      "satSun": "Shan - Yak: 10:00 - 16:00"
     }
   },
   "footer": {
     "description": "O'zbekistonning go'zalligi va madaniyatini kash eting",
+    "quickLinks": "Tezkor Havolalar",
+    "destinations": "Yo'nalishlar",
+    "contactInfo": "Aloqa Ma'lumotlari",
     "links": {
+      "home": "Bosh Sahifa",
+      "historicCities": "Tarixiy Shaharlar",
+      "tourPackages": "Tur Paketlari",
+      "whyChooseUs": "Nega Biz",
+      "contact": "Aloqa",
       "about": "Haqida",
-      "privacy": "Maxfiylik",
-      "terms": "Shartlar"
+      "tours": "Turlar",
+      "privacy": "Maxfiylik Siyosati",
+      "terms": "Foydalanish Shartlari",
+      "cookiePolicy": "Cookie Fayllari Siyosati"
     },
-    "copyright": "Barcha huquqlar himoyalangan"
+    "cities": {
+      "tashkent": "Toshkent - Zamonaviy Poytaxt",
+      "samarkand": "Samarqand - Registon Maydoni",
+      "bukhara": "Buxoro - Jonli Muzey",
+      "khiva": "Xiva - Qadimiy Qal'a",
+      "termez": "Termiz - Buddaviylik Merosi"
+    },
+    "address": "123 Amir Temur ko'chasi<br />Toshkent 100000, O'zbekiston",
+    "phone": "+998 71 123 4567",
+    "email": "info@exploreuzb.com",
+    "hours": {
+      "weekdays": "Dush-Pay: 9:00-18:00",
+      "weekends": "Shan-Yak: 10:00-16:00"
+    },
+    "copyright": "© 2024 O'zbekistoni Kashing. Barcha huquqlar himoyalangan"
   }
 }

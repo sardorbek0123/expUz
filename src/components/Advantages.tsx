@@ -2,39 +2,42 @@ import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { Car, Building, Users, Award, Star, Shield } from "lucide-react";
 import { useCounter } from './hooks/useCounter';
-
-const advantages = [
-  {
-    icon: <Car className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />,
-    title: "Premium Transport",
-    description: "Modern, air-conditioned vehicles with experienced drivers for comfortable journeys between cities",
-    features: ["Fast trains available", "Private car options", "Airport transfers included"],
-    gradient: "from-blue-500/20 to-cyan-500/20"
-  },
-  {
-    icon: <Building className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />,
-    title: "Quality Hotels",
-    description: "Carefully selected accommodations ranging from comfortable 3-star to luxury 5-star properties",
-    features: ["Daily breakfast included", "Central locations", "Traditional & modern options"],
-    gradient: "from-primary/20 to-orange-500/20"
-  },
-  {
-    icon: <Users className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />,
-    title: "Expert Guides",
-    description: "Licensed local guides with deep knowledge of history, culture, and hidden gems of each destination",
-    features: ["Multi-language support", "Cultural insights", "Flexible itineraries"],
-    gradient: "from-green-500/20 to-emerald-500/20"
-  }
-];
-
-const stats = [
-  { number: 500, suffix: "+", label: "Happy Travelers", duration: 2000 },
-  { number: 98, suffix: "%", label: "Satisfaction Rate", duration: 2200 },
-  { number: 15, suffix: "", label: "Years Experience", duration: 1800 },
-  { number: 24, suffix: "/7", label: "Support Available", duration: 1600 }
-];
+import { useLanguage } from '../hooks/useLanguage';
 
 export function Advantages() {
+  const { t } = useLanguage();
+
+  const advantages = [
+    {
+      icon: <Car className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />,
+      title: t('advantages.transport.title'),
+      description: t('advantages.transport.description'),
+      features: t('advantages.transport.features', { returnObjects: true }),
+      gradient: "from-blue-500/20 to-cyan-500/20"
+    },
+    {
+      icon: <Building className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />,
+      title: t('advantages.hotels.title'),
+      description: t('advantages.hotels.description'),
+      features: t('advantages.hotels.features', { returnObjects: true }),
+      gradient: "from-primary/20 to-orange-500/20"
+    },
+    {
+      icon: <Users className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />,
+      title: t('advantages.guides.title'),
+      description: t('advantages.guides.description'),
+      features: t('advantages.guides.features', { returnObjects: true }),
+      gradient: "from-green-500/20 to-emerald-500/20"
+    }
+  ];
+
+  const stats = [
+    { number: 500, suffix: "+", label: t('advantages.stats.happyTravelers'), duration: 2000 },
+    { number: 98, suffix: "%", label: t('advantages.stats.satisfactionRate'), duration: 2200 },
+    { number: 15, suffix: "", label: t('advantages.stats.yearsExperience'), duration: 1800 },
+    { number: 24, suffix: "/7", label: t('advantages.stats.supportAvailable'), duration: 1600 }
+  ];
+
   return (
     <section id="advantages" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,11 +47,10 @@ export function Advantages() {
           data-aos="fade-up"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            Why Choose Explore Uzbekistan
+            {t('advantages.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            We provide comprehensive travel solutions with attention to every detail, 
-            ensuring your journey through Uzbekistan is comfortable, authentic, and unforgettable.
+            {t('advantages.subtitle')}
           </p>
         </div>
 
@@ -83,7 +85,7 @@ export function Advantages() {
 
                 {/* Features */}
                 <div className="space-y-2">
-                  {advantage.features.map((feature, featureIndex) => (
+                  {Array.isArray(advantage.features) && advantage.features.map((feature, featureIndex) => (
                     <div 
                       key={feature} 
                       className="flex items-center text-sm"
@@ -138,8 +140,8 @@ export function Advantages() {
               <Award className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Licensed & Certified</h4>
-              <p className="text-xs sm:text-sm text-muted-foreground">All our guides are licensed and our company is certified by Uzbekistan tourism authorities.</p>
+              <h4 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">{t('advantages.benefits.licensed.title')}</h4>
+              <p className="text-xs sm:text-sm text-muted-foreground">{t('advantages.benefits.licensed.description')}</p>
             </div>
           </div>
 
@@ -148,8 +150,8 @@ export function Advantages() {
               <Star className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">5-Star Reviews</h4>
-              <p className="text-xs sm:text-sm text-muted-foreground">Consistently rated 5 stars by travelers on TripAdvisor, Google, and other platforms.</p>
+              <h4 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">{t('advantages.benefits.reviews.title')}</h4>
+              <p className="text-xs sm:text-sm text-muted-foreground">{t('advantages.benefits.reviews.description')}</p>
             </div>
           </div>
 
@@ -158,8 +160,8 @@ export function Advantages() {
               <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Travel Insurance</h4>
-              <p className="text-xs sm:text-sm text-muted-foreground">Comprehensive travel insurance included in Premium and VIP packages for peace of mind.</p>
+              <h4 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">{t('advantages.benefits.insurance.title')}</h4>
+              <p className="text-xs sm:text-sm text-muted-foreground">{t('advantages.benefits.insurance.description')}</p>
             </div>
           </div>
         </div>

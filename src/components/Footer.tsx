@@ -51,14 +51,14 @@ export function Footer() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <h4 className="font-semibold">Quick Links</h4>
+              <h4 className="font-semibold">{t('footer.quickLinks')}</h4>
               <ul className="space-y-2">
                 <li>
                   <button 
                     onClick={() => scrollToSection('home')}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
-                    Home
+                    {t('footer.links.home')}
                   </button>
                 </li>
                 <li>
@@ -66,7 +66,7 @@ export function Footer() {
                     onClick={() => scrollToSection('cities')}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
-                    Historic Cities
+                    {t('footer.links.historicCities')}
                   </button>
                 </li>
                 <li>
@@ -74,7 +74,7 @@ export function Footer() {
                     onClick={() => scrollToSection('packages')}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
-                    Tour Packages
+                    {t('footer.links.tourPackages')}
                   </button>
                 </li>
                 <li>
@@ -82,7 +82,7 @@ export function Footer() {
                     onClick={() => scrollToSection('advantages')}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
-                    Why Choose Us
+                    {t('footer.links.whyChooseUs')}
                   </button>
                 </li>
                 <li>
@@ -90,7 +90,7 @@ export function Footer() {
                     onClick={() => scrollToSection('contact')}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
-                    Contact
+                    {t('footer.links.contact')}
                   </button>
                 </li>
               </ul>
@@ -102,31 +102,31 @@ export function Footer() {
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              <h4 className="font-semibold">Destinations</h4>
+              <h4 className="font-semibold">{t('footer.destinations')}</h4>
               <ul className="space-y-2">
                 <li>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    Tashkent - Modern Capital
+                    {t('footer.cities.tashkent')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    Samarkand - Registan Square
+                    {t('footer.cities.samarkand')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    Bukhara - Living Museum
+                    {t('footer.cities.bukhara')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    Khiva - Ancient Fortress
+                    {t('footer.cities.khiva')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    Termez - Buddhist Heritage
+                    {t('footer.cities.termez')}
                   </a>
                 </li>
               </ul>
@@ -138,32 +138,29 @@ export function Footer() {
               data-aos="fade-up"
               data-aos-delay="400"
             >
-              <h4 className="font-semibold">Contact Information</h4>
+              <h4 className="font-semibold">{t('footer.contactInfo')}</h4>
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                  <div className="text-sm text-muted-foreground">
-                    123 Amir Timur Street<br />
-                    Tashkent 100000, Uzbekistan
-                  </div>
+                  <div className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('footer.address') }} />
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                   <div className="text-sm text-muted-foreground">
-                    +998 71 123 4567
+                    {t('footer.phone')}
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                   <div className="text-sm text-muted-foreground">
-                    info@exploreuzb.com
+                    {t('footer.email')}
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Clock className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
                   <div className="text-sm text-muted-foreground">
-                    Mon-Fri: 9AM-6PM<br />
-                    Sat-Sun: 10AM-4PM
+                    {t('footer.hours.weekdays')}<br />
+                    {t('footer.hours.weekends')}
                   </div>
                 </div>
               </div>
@@ -213,7 +210,7 @@ export function Footer() {
                 {t('footer.links.terms')}
               </a>
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Cookie Policy
+                {t('footer.links.cookiePolicy')}
               </a>
             </div>
           </div>

@@ -49,13 +49,12 @@ export function ContactForm() {
               <div className="mb-6">
                 <CheckCircle className="h-16 w-16 text-green-500 mx-auto" />
               </div>
-              <h2 className="text-3xl font-bold mb-4 text-primary">Thank You!</h2>
+              <h2 className="text-3xl font-bold mb-4 text-primary">{t('contact.ui.thankYou')}</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Your inquiry has been received. Our travel specialists will contact you within 24 hours 
-                to discuss your Uzbekistan adventure and provide personalized recommendations.
+                {t('contact.ui.thankYouDesc')}
               </p>
               <Badge className="bg-primary/10 text-primary border-primary/20">
-                Expected Response: Within 24 hours
+                {t('contact.ui.expectedResponse')}
               </Badge>
             </div>
           </div>
@@ -89,9 +88,9 @@ export function ContactForm() {
           >
             <Card className="shadow-xl border-2 border-primary/10">
               <CardHeader>
-                <CardTitle className="text-2xl">Plan Your Adventure</CardTitle>
+                <CardTitle className="text-2xl">{t('contact.ui.planAdventure')}</CardTitle>
                 <p className="text-muted-foreground">
-                  Tell us about your travel preferences and we'll create the perfect Uzbekistan experience for you.
+                  {t('contact.ui.planAdventureDesc')}
                 </p>
               </CardHeader>
               <CardContent>
@@ -105,7 +104,7 @@ export function ContactForm() {
                       <label className="text-sm font-medium mb-2 block">{t('contact.form.name')} *</label>
                       <Input
                         type="text"
-                        placeholder="Enter your full name"
+                        placeholder={t('contact.ui.enterFullName')}
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         required
@@ -118,7 +117,7 @@ export function ContactForm() {
                       <label className="text-sm font-medium mb-2 block">{t('contact.form.email')} *</label>
                       <Input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder={t('contact.ui.enterEmail')}
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         required
@@ -134,7 +133,7 @@ export function ContactForm() {
                       <label className="text-sm font-medium mb-2 block">{t('contact.form.phone')}</label>
                       <Input
                         type="tel"
-                        placeholder="Enter your phone number"
+                        placeholder={t('contact.ui.enterPhone')}
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                       />
@@ -146,13 +145,13 @@ export function ContactForm() {
                       <label className="text-sm font-medium mb-2 block">{t('contact.form.package')}</label>
                       <Select onValueChange={(value) => handleInputChange('package', value)}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a package" />
+                          <SelectValue placeholder={t('contact.ui.selectPackage')} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="standard">Standard Package - $899</SelectItem>
-                          <SelectItem value="premium">Premium Package - $1,499</SelectItem>
-                          <SelectItem value="vip">VIP Package - $2,299</SelectItem>
-                          <SelectItem value="custom">Custom Package</SelectItem>
+                          <SelectItem value="standard">{t('contact.packages.standard')}</SelectItem>
+                          <SelectItem value="premium">{t('contact.packages.premium')}</SelectItem>
+                          <SelectItem value="vip">{t('contact.packages.vip')}</SelectItem>
+                          <SelectItem value="custom">{t('contact.packages.custom')}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -163,17 +162,17 @@ export function ContactForm() {
                       data-aos="fade-up"
                       data-aos-delay="800"
                     >
-                      <label className="text-sm font-medium mb-2 block">Number of Travelers</label>
+                      <label className="text-sm font-medium mb-2 block">{t('contact.form.travelers')}</label>
                       <Select onValueChange={(value) => handleInputChange('travelers', value)}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select number" />
+                          <SelectValue placeholder={t('contact.ui.selectNumber')} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="1">1 Person</SelectItem>
-                          <SelectItem value="2">2 People</SelectItem>
-                          <SelectItem value="3-4">3-4 People</SelectItem>
-                          <SelectItem value="5-8">5-8 People</SelectItem>
-                          <SelectItem value="9+">9+ People (Group)</SelectItem>
+                          <SelectItem value="1">{t('contact.travelers.1')}</SelectItem>
+                          <SelectItem value="2">{t('contact.travelers.2')}</SelectItem>
+                          <SelectItem value="3-4">{t('contact.travelers.3-4')}</SelectItem>
+                          <SelectItem value="5-8">{t('contact.travelers.5-8')}</SelectItem>
+                          <SelectItem value="9+">{t('contact.travelers.9+')}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -181,10 +180,10 @@ export function ContactForm() {
                       data-aos="fade-up"
                       data-aos-delay="850"
                     >
-                      <label className="text-sm font-medium mb-2 block">Preferred Travel Dates</label>
+                      <label className="text-sm font-medium mb-2 block">{t('contact.form.dates')}</label>
                       <Input
                         type="text"
-                        placeholder="e.g., March 2025 or Spring 2025"
+                        placeholder={t('contact.ui.enterDates')}
                         value={formData.dates}
                         onChange={(e) => handleInputChange('dates', e.target.value)}
                       />
@@ -195,9 +194,9 @@ export function ContactForm() {
                     data-aos="fade-up"
                     data-aos-delay="900"
                   >
-                    <label className="text-sm font-medium mb-2 block">Additional Information</label>
+                    <label className="text-sm font-medium mb-2 block">{t('contact.form.message')}</label>
                     <Textarea
-                      placeholder="Tell us about your interests, special requirements, or any questions you have..."
+                      placeholder={t('contact.ui.enterMessage')}
                       rows={4}
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
@@ -235,14 +234,12 @@ export function ContactForm() {
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center text-lg">
                   <MapPin className="h-5 w-5 mr-2 text-primary" />
-                  Our Office
+                  {t('contact.contactInfo.ourOffice')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  123 Amir Timur Street<br />
-                  Tashkent 100000<br />
-                  Uzbekistan
+                  {t('contact.info.address')}
                 </p>
               </CardContent>
             </Card>
@@ -251,12 +248,12 @@ export function ContactForm() {
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center text-lg">
                   <Phone className="h-5 w-5 mr-2 text-primary" />
-                  Phone & WhatsApp
+                  {t('contact.contactInfo.phoneWhatsapp')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  +998 71 123 4567<br />
+                  {t('contact.info.phone')}<br />
                   +998 90 123 4567
                 </p>
               </CardContent>
@@ -266,12 +263,12 @@ export function ContactForm() {
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center text-lg">
                   <Mail className="h-5 w-5 mr-2 text-primary" />
-                  Email
+                  {t('contact.contactInfo.email')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm sm:text-base">
-                  info@exploreuzb.com<br />
+                  {t('contact.info.email')}<br />
                   tours@exploreuzb.com
                 </p>
               </CardContent>
@@ -281,15 +278,15 @@ export function ContactForm() {
               <CardHeader className="pb-1">
                 <CardTitle className="flex items-center text-lg">
                   <Clock className="h-5 w-5 mr-2 text-primary" />
-                  Business Hours
-                  <span className="text-sm text-primary">(Tashkent Time, GMT+5)</span>
+                  {t('contact.contactInfo.businessHours')}
+                  <span className="text-sm text-primary">{t('contact.contactInfo.tashkentTime')}</span>
 
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm sm:text-base">
-                  Mon - Fri: 9:00 AM - 6:00 PM<br />
-                  Sat - Sun: 10:00 AM - 4:00 PM<br />
+                  {t('contact.contactInfo.monFri')}<br />
+                  {t('contact.contactInfo.satSun')}<br />
                 </p>
               </CardContent>
             </Card>

@@ -54,48 +54,110 @@
     }
   },
   "advantages": {
-    "title": "Why Choose Uzbekistan?",
-    "subtitle": "Experience the perfect blend of history, culture, and adventure",
-    "items": {
-      "history": {
-        "title": "Rich History",
-        "description": "Over 2000 years of civilization along the ancient Silk Road"
+    "title": "Why Choose Explore Uzbekistan",
+    "subtitle": "We provide comprehensive travel solutions with attention to every detail, ensuring your journey through Uzbekistan is comfortable, authentic, and unforgettable.",
+    "transport": {
+      "title": "Premium Transport",
+      "description": "Modern, air-conditioned vehicles with experienced drivers for comfortable journeys between cities",
+      "features": ["Fast trains available", "Private car options", "Airport transfers included"]
+    },
+    "hotels": {
+      "title": "Quality Hotels",
+      "description": "Carefully selected accommodations ranging from comfortable 3-star to luxury 5-star properties",
+      "features": ["Daily breakfast included", "Central locations", "Traditional & modern options"]
+    },
+    "guides": {
+      "title": "Expert Guides",
+      "description": "Licensed local guides with deep knowledge of history, culture, and hidden gems of each destination",
+      "features": ["Multi-language support", "Cultural insights", "Flexible itineraries"]
+    },
+    "stats": {
+      "happyTravelers": "Happy Travelers",
+      "satisfactionRate": "Satisfaction Rate",
+      "yearsExperience": "Years Experience",
+      "supportAvailable": "Support Available"
+    },
+    "benefits": {
+      "licensed": {
+        "title": "Licensed & Certified",
+        "description": "All our guides are licensed and our company is certified by Uzbekistan tourism authorities."
       },
-      "architecture": {
-        "title": "Stunning Architecture",
-        "description": "Breathtaking Islamic architecture and intricate tilework"
+      "reviews": {
+        "title": "5-Star Reviews",
+        "description": "Consistently rated 5 stars by travelers on TripAdvisor, Google, and other platforms."
       },
-      "culture": {
-        "title": "Vibrant Culture",
-        "description": "Warm hospitality and authentic Central Asian traditions"
-      },
-      "adventure": {
-        "title": "Unique Adventures",
-        "description": "From desert treks to mountain hikes and cultural experiences"
+      "insurance": {
+        "title": "Travel Insurance",
+        "description": "Comprehensive travel insurance included in Premium and VIP packages for peace of mind."
       }
     }
   },
   "packages": {
-    "title": "Tour Packages",
-    "subtitle": "Choose your perfect Uzbekistan adventure",
-    "basic": {
-      "title": "Essential Uzbekistan",
-      "description": "Perfect introduction to the main highlights",
-      "duration": "7 days",
-      "price": "From $999"
+    "title": "Choose Your Adventure",
+    "subtitle": "From comfortable group tours to luxury private experiences, we have the perfect package to match your travel style and create unforgettable memories in Uzbekistan.",
+    "standard": {
+      "name": "Standard Package",
+      "price": "$1,399",
+      "duration": "8 Days & 7 Nights",
+      "badge": "Most Popular",
+      "description": "Perfect introduction to Uzbekistan's highlights with comfortable accommodations and guided group tours.",
+      "features": [
+        "2–3★ hotels with daily breakfast",
+        "One-way airport transfer",
+        "Shared transport between cities",
+        "Group sightseeing in major cities with guide",
+        "Main site entrance fees",
+        "Daily breakfast + some meals per itinerary",
+        "Local support & basic travel tips"
+      ],
+      "includes": "Budget accommodation, breakfast, group tours, basic support"
     },
-    "cultural": {
-      "title": "Cultural Heritage",
-      "description": "Deep dive into history and traditions",
-      "duration": "10 days",
-      "price": "From $1,499"
+    "premium": {
+      "name": "Premium Package",
+      "price": "$1,899",
+      "duration": "8 Days & 7 Nights",
+      "badge": "Best Value",
+      "description": "Enhanced experience with quality hotels, private transport, and authentic local experiences.",
+      "features": [
+        "4★ hotels with breakfast & 2–3 curated meals",
+        "Round-trip airport transfers",
+        "Fast train/private car between cities",
+        "Private/small-group guided tours",
+        "All entrance fees & museum visits",
+        "Local experiences (workshops, cooking class, hammam)",
+        "SIM/Wi-Fi on request",
+        "Travel insurance included",
+        "Enhanced support throughout journey"
+      ],
+      "includes": "4-star hotels, curated meals, private transport, local experiences"
     },
-    "luxury": {
-      "title": "Luxury Silk Road",
-      "description": "Premium experience with exclusive access",
-      "duration": "14 days",
-      "price": "From $2,999"
-    }
+    "vip": {
+      "name": "VIP Package",
+      "price": "$2,299",
+      "duration": "8 Days & 7 Nights",
+      "badge": "Ultimate Luxury",
+      "description": "Ultimate luxury experience with boutique hotels, VIP services, and exclusive access throughout.",
+      "features": [
+        "4★ or 5★ boutique luxury hotels with meals",
+        "VIP airport service & private transfers",
+        "Expert guide & 24/7 concierge",
+        "All fees + exclusive after-hours visits",
+        "Private events & exclusive experiences",
+        "Custom itinerary & bespoke activities",
+        "Premium insurance coverage",
+        "Welcome amenities included",
+        "All gratuities included",
+        "Personal concierge service"
+      ],
+      "includes": "Luxury hotels, VIP services, custom experiences, full concierge"
+    },
+    "additionalInfo": {
+      "satisfaction": "Satisfaction Guarantee",
+      "support": "Customer Support",
+      "cancellation": "Cancellation up to 48h"
+    },
+    "bookNow": "Book Now",
+    "packageIncludes": "Package Includes:"
   },
   "contact": {
     "title": "Start Your Journey",
@@ -106,27 +168,85 @@
       "phone": "Phone Number",
       "package": "Tour Package",
       "travelers": "Number of Travelers",
-      "dates": "Preferred Dates",
+      "dates": "Preferred Travel Dates",
       "message": "Additional Information",
       "submit": "Send Inquiry",
       "success": "Thank you! We'll contact you within 24 hours to discuss your Uzbekistan adventure.",
       "note": "We'll respond within 24 hours with a personalized itinerary and pricing."
     },
     "info": {
-      "address": "123 Silk Road, Tashkent, Uzbekistan",
-      "phone": "+998 71 123 45 67",
-      "email": "info@exploreuzbekistan.uz",
+      "address": "123 Amir Timur Street, Tashkent 100000, Uzbekistan",
+      "phone": "+998 71 123 4567",
+      "email": "info@exploreuzb.com",
       "hours": "Mon-Fri: 9:00 AM - 6:00 PM"
+    },
+    "ui": {
+      "planAdventure": "Plan Your Adventure",
+      "planAdventureDesc": "Tell us about your travel preferences and we'll create the perfect Uzbekistan experience for you.",
+      "enterFullName": "Enter your full name",
+      "enterEmail": "Enter your email",
+      "enterPhone": "Enter your phone number",
+      "selectPackage": "Select a package",
+      "selectNumber": "Select number",
+      "enterDates": "e.g., March 2025 or Spring 2025",
+      "enterMessage": "Tell us about your interests, special requirements, or any questions you have...",
+      "thankYou": "Thank You!",
+      "thankYouDesc": "Your inquiry has been received. Our travel specialists will contact you within 24 hours to discuss your Uzbekistan adventure and provide personalized recommendations.",
+      "expectedResponse": "Expected Response: Within 24 hours"
+    },
+    "packages": {
+      "standard": "Standard Package - $899",
+      "premium": "Premium Package - $1,499",
+      "vip": "VIP Package - $2,299",
+      "custom": "Custom Package"
+    },
+    "travelers": {
+      "1": "1 Person",
+      "2": "2 People",
+      "3-4": "3-4 People",
+      "5-8": "5-8 People",
+      "9+": "9+ People (Group)"
+    },
+    "contactInfo": {
+      "ourOffice": "Our Office",
+      "phoneWhatsapp": "Phone & WhatsApp",
+      "email": "Email",
+      "businessHours": "Business Hours",
+      "tashkentTime": "(Tashkent Time, GMT+5)",
+      "monFri": "Mon - Fri: 9:00 AM - 6:00 PM",
+      "satSun": "Sat - Sun: 10:00 AM - 4:00 PM"
     }
   },
   "footer": {
     "description": "Your gateway to discovering the wonders of Uzbekistan",
+    "quickLinks": "Quick Links",
+    "destinations": "Destinations",
+    "contactInfo": "Contact Information",
     "links": {
+      "home": "Home",
+      "historicCities": "Historic Cities",
+      "tourPackages": "Tour Packages",
+      "whyChooseUs": "Why Choose Us",
+      "contact": "Contact",
       "about": "About Us",
       "tours": "Tours",
-      "contact": "Contact",
       "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "terms": "Terms of Service",
+      "cookiePolicy": "Cookie Policy"
+    },
+    "cities": {
+      "tashkent": "Tashkent - Modern Capital",
+      "samarkand": "Samarkand - Registan Square",
+      "bukhara": "Bukhara - Living Museum",
+      "khiva": "Khiva - Ancient Fortress",
+      "termez": "Termez - Buddhist Heritage"
+    },
+    "address": "123 Amir Timur Street<br />Tashkent 100000, Uzbekistan",
+    "phone": "+998 71 123 4567",
+    "email": "info@exploreuzb.com",
+    "hours": {
+      "weekdays": "Mon-Fri: 9AM-6PM",
+      "weekends": "Sat-Sun: 10AM-4PM"
     },
     "copyright": "© 2024 Explore Uzbekistan. All rights reserved."
   }
