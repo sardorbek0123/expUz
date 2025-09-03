@@ -72,6 +72,9 @@ export function TourPackages() {
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {t('packages.subtitle')}
           </p>
+          <div className="rounded-xl py-4 flex justify-center">
+            <img src="/tour_map.jpg" alt="Tour map" className="object-cover rounded-xl md:w-[650px]" />
+          </div>
         </div>
 
         {/* Mobile Cards */}
